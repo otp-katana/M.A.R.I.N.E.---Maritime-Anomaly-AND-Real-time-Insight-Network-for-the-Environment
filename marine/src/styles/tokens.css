@@ -1,0 +1,106 @@
+/* M.A.R.I.N.E. design tokens
+   Varsayılan: koyu tema. Açık tema: <html data-theme="light"> */
+
+:root {
+  color-scheme: dark;
+
+  /* Zemin */
+  --bg-base: #050a1c;
+  --bg-glow-a: rgba(56, 120, 255, 0.22);
+  --bg-glow-b: rgba(139, 109, 255, 0.16);
+  --bg-glow-c: rgba(53, 212, 255, 0.1);
+
+  /* Yüzeyler (cam kartlar) */
+  --surface: rgba(16, 27, 66, 0.55);
+  --surface-hover: rgba(22, 36, 84, 0.65);
+  --surface-solid: #0d1838;
+  --sidebar-bg: rgba(7, 14, 38, 0.72);
+  --border: rgba(130, 170, 255, 0.16);
+  --border-strong: rgba(130, 170, 255, 0.34);
+  --inner-highlight: rgba(255, 255, 255, 0.06);
+
+  /* Metin */
+  --text-primary: #eaf1ff;
+  --text-secondary: #9fb0d6;
+  --text-muted: #6b7ba3;
+
+  /* Vurgu renkleri */
+  --accent-cyan: #35d4ff;
+  --accent-blue: #4d8dff;
+  --accent-violet: #8b6dff;
+  --accent-orange: #ff9f43;
+  --accent-green: #3ddc97;
+  --danger: #ff5d73;
+  --accent-soft: rgba(77, 141, 255, 0.16);
+  --grad-accent: linear-gradient(135deg, #5fd0ff 0%, #6f8bff 55%, #9b7bff 100%);
+  --grad-title: linear-gradient(180deg, #ffffff 0%, #b9c8f5 100%);
+
+  /* Gölge ve efektler */
+  --shadow-card: 0 10px 40px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 var(--inner-highlight);
+  --glow-cyan: 0 0 24px rgba(53, 212, 255, 0.35);
+  --blur: 18px;
+
+  /* Tipografi */
+  --font-sans: 'Outfit Variable', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono Variable', ui-monospace, 'Cascadia Code', monospace;
+
+  /* Boşluk ölçeği (4px tabanlı) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+
+  /* Köşe yuvarlaklığı */
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+
+  /* Yerleşim */
+  --sidebar-width: 168px;
+  --topbar-height: 72px;
+  --content-gap: 20px;
+
+  /* Hareket */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 150ms;
+  --dur: 250ms;
+}
+
+[data-theme='light'] {
+  color-scheme: light;
+
+  --bg-base: #e9f0fb;
+  --bg-glow-a: rgba(77, 141, 255, 0.28);
+  --bg-glow-b: rgba(139, 109, 255, 0.16);
+  --bg-glow-c: rgba(53, 212, 255, 0.18);
+
+  --surface: rgba(255, 255, 255, 0.68);
+  --surface-hover: rgba(255, 255, 255, 0.85);
+  --surface-solid: #ffffff;
+  --sidebar-bg: rgba(255, 255, 255, 0.72);
+  --border: rgba(40, 80, 160, 0.14);
+  --border-strong: rgba(40, 80, 160, 0.3);
+  --inner-highlight: rgba(255, 255, 255, 0.8);
+
+  --text-primary: #0c1a3a;
+  --text-secondary: #4a5c85;
+  --text-muted: #7a8aaf;
+
+  --accent-cyan: #0aa7d6;
+  --accent-blue: #2f6fe8;
+  --accent-violet: #6b4be0;
+  --accent-orange: #e8820f;
+  --accent-green: #16a870;
+  --accent-soft: rgba(47, 111, 232, 0.12);
+  --grad-title: linear-gradient(180deg, #0c1a3a 0%, #34497d 100%);
+
+  --shadow-card: 0 8px 30px rgba(30, 60, 130, 0.12),
+    inset 0 1px 0 var(--inner-highlight);
+  --glow-cyan: 0 0 20px rgba(10, 167, 214, 0.25);
+}
