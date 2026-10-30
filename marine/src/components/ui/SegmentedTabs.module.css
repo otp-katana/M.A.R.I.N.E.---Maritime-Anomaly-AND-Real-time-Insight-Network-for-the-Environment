@@ -1,0 +1,29 @@
+.root {
+  display: inline-flex;
+  gap: var(--space-1);
+  padding: var(--space-1);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+}
+
+.tab {
+  padding: 6px 14px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  border-radius: var(--radius-pill);
+  transition:
+    background var(--dur-fast) var(--ease),
+    color var(--dur-fast) var(--ease);
+}
+
+.tab:hover {
+  color: var(--text-primary);
+}
+
+.active,
+.active:hover {
+  font-weight: 500;
+  color: #04122e;
+  background: linear-gradient(135deg, #7fd9ff, #5aa2ff);
+}

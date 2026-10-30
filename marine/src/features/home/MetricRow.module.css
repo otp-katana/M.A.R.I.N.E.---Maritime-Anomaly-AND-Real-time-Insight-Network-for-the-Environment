@@ -1,0 +1,55 @@
+.row {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.row:last-child {
+  border-bottom: 0;
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, currentColor 16%, transparent);
+}
+
+.cyan   { color: var(--accent-cyan); }
+.green  { color: var(--accent-green); }
+.orange { color: var(--accent-orange); }
+
+.label {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.cadence {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.value {
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.unit {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-secondary);
+}
+
+.delta {
+  font-size: 12px;
+}
+
+.good    { color: var(--accent-green); }
+.bad     { color: var(--accent-orange); }
+.neutral { color: var(--text-muted); }

@@ -1,0 +1,27 @@
+.viewAll {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--accent-cyan);
+}
+
+.viewAll:hover {
+  text-decoration: underline;
+}
+
+.list {
+  margin-top: var(--space-3);
+}
+
+.skeleton {
+  height: 58px;
+  margin: 4px 0;
+  border-radius: var(--radius-md);
+  background: var(--accent-soft);
+  opacity: 0.5;
+}
+
+.note {
+  color: var(--text-muted);
+}

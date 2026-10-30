@@ -1,0 +1,33 @@
+.root {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.select {
+  appearance: none;
+  padding: 6px 32px 6px 14px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: border-color var(--dur-fast) var(--ease);
+}
+
+.select:hover {
+  border-color: var(--border-strong);
+}
+
+.select option {
+  color: var(--text-primary);
+  background: var(--surface-solid);
+}
+
+.chevron {
+  position: absolute;
+  right: 12px;
+  color: var(--text-muted);
+  pointer-events: none;
+}

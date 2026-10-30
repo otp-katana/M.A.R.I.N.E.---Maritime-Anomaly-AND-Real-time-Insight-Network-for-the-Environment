@@ -1,0 +1,59 @@
+.stage {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: var(--content-gap);
+  align-items: center;
+}
+
+.heroArea {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 500px;
+}
+
+/* Küre bu yuvanın içinde durur; konum ve boyutu burada belirlenir */
+.globeSlot {
+  position: absolute;
+  top: 50%;
+  right: -2%;
+  width: min(60%, 660px);
+  transform: translateY(-50%);
+}
+
+.panels {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr) 320px;
+  gap: var(--content-gap);
+  margin-top: var(--content-gap);
+}
+
+/* Orta genişlik: ilk iki kart yan yana, Data Sources altta tam genişlikte */
+@media (max-width: 1280px) {
+  .panels {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .panels > :last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 1100px) {
+  .stage {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .heroArea {
+    min-height: 440px;
+  }
+
+  .globeSlot {
+    width: min(78%, 520px);
+    opacity: 0.55;
+  }
+
+  .panels {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

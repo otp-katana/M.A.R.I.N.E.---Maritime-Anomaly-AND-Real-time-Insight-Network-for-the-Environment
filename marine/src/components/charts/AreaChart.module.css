@@ -1,0 +1,69 @@
+.wrap {
+  position: relative;
+  width: 100%;
+  color: var(--accent-cyan);
+}
+
+.svg {
+  display: block;
+}
+
+.grid {
+  stroke: var(--border);
+  stroke-dasharray: 3 5;
+}
+
+.tick {
+  fill: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 11px;
+}
+
+.line {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.25;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.guide {
+  stroke: currentColor;
+  stroke-opacity: 0.45;
+  stroke-dasharray: 3 4;
+}
+
+.dot {
+  fill: currentColor;
+  stroke: var(--surface-solid);
+  stroke-width: 2.5;
+}
+
+.overlay {
+  fill: transparent;
+  cursor: crosshair;
+  touch-action: pan-y;
+}
+
+.tooltip {
+  position: absolute;
+  padding: 8px 12px;
+  white-space: nowrap;
+  pointer-events: none;
+  background: var(--surface-solid);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  transform: translate(-50%, calc(-100% - 14px));
+}
+
+.tipValue {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.tipDate {
+  font-size: 11px;
+  color: var(--text-muted);
+}

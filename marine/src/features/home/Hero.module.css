@@ -1,0 +1,45 @@
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 560px;
+  padding: var(--space-8) 0 var(--space-6);
+  position: relative;
+  z-index: 1;
+}
+
+.title {
+  font-size: clamp(36px, 4.4vw, 72px);
+  font-weight: 200;
+  letter-spacing: 0.06em;
+  line-height: 1.05;
+  background: var(--grad-title);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.tagline {
+  margin-top: var(--space-2);
+  font-size: clamp(20px, 2.4vw, 34px);
+  font-weight: 300;
+  background: var(--grad-accent);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.description {
+  max-width: 440px;
+  margin-top: var(--space-5);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: var(--space-8);
+}

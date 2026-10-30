@@ -1,0 +1,55 @@
+import type { KpiMetric } from '@/data/types'
+
+export const mockKpis: KpiMetric[] = [
+  {
+    id: 'ocean-temp',
+    label: 'Global Ocean Temperature',
+    icon: 'thermometer',
+    value: 21.4,
+    unit: '°C',
+    decimals: 1,
+    delta: -0.2,
+    deltaDecimals: 1,
+    sentiment: 'good',
+    cadence: 'daily',
+    series: [
+      21.55, 21.6, 21.58, 21.65, 21.7, 21.66, 21.62, 21.64, 21.6, 21.57, 21.59,
+      21.55, 21.52, 21.54, 21.5, 21.48, 21.5, 21.47, 21.45, 21.46, 21.43, 21.44,
+      21.41, 21.4,
+    ],
+  },
+  {
+    id: 'ocean-ph',
+    label: 'Ocean pH',
+    icon: 'drop',
+    value: 8.06,
+    unit: '',
+    decimals: 2,
+    delta: -0.01,
+    deltaDecimals: 2,
+    sentiment: 'bad',
+    cadence: 'monthly',
+    series: [
+      8.068, 8.067, 8.069, 8.066, 8.065, 8.067, 8.064, 8.065, 8.063, 8.064, 8.065,
+      8.062, 8.063, 8.061, 8.062, 8.06, 8.061, 8.062, 8.06, 8.059, 8.061, 8.06,
+      8.059, 8.06,
+    ],
+  },
+  {
+    id: 'sea-level',
+    label: 'Sea Level Rise',
+    icon: 'waves',
+    value: 3.2,
+    unit: 'mm/yr',
+    decimals: 1,
+    showSign: true,
+    delta: 0.1,
+    deltaDecimals: 1,
+    sentiment: 'bad',
+    cadence: 'annual',
+    series: [
+      2.9, 2.95, 3.0, 2.98, 3.02, 3.05, 3.04, 3.08, 3.1, 3.07, 3.12, 3.1, 3.14,
+      3.13, 3.16, 3.15, 3.18, 3.17, 3.2, 3.19, 3.22, 3.18, 3.21, 3.2,
+    ],
+  },
+]

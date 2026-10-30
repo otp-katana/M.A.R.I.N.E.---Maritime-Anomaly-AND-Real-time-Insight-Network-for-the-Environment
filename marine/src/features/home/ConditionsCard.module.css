@@ -1,0 +1,14 @@
+.body {
+  margin-top: var(--space-3);
+}
+
+.skeleton {
+  height: 230px;
+  border-radius: var(--radius-md);
+  background: var(--accent-soft);
+  opacity: 0.5;
+}
+
+.note {
+  color: var(--text-muted);
+}
