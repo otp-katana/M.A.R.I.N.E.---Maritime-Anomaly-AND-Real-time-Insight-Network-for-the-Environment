@@ -1,18 +1,18 @@
 .container {
   container-type: inline-size;
-  margin-top: var(--space-4);
+  margin-top: 10px;
 }
 
 .body {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
   align-items: center;
-  gap: var(--space-4);
+  gap: 24px;
 }
 
 .orb {
-  width: 104px;
-  aspect-ratio: 1;
+  width: 210px;
+  height: 210px;
   border-radius: 50%;
   background:
     radial-gradient(circle at 36% 38%, rgba(120, 190, 140, 0.55) 0 9%, transparent 10%),
@@ -20,17 +20,18 @@
     radial-gradient(circle at 48% 64%, rgba(120, 190, 140, 0.45) 0 10%, transparent 11%),
     radial-gradient(circle at 30% 30%, #6fc4ff, #2f63d9 50%, #0b1a4a 100%);
   box-shadow:
-    inset -12px -8px 26px rgba(0, 0, 0, 0.45),
-    0 0 30px rgba(77, 141, 255, 0.35);
+    inset -22px -16px 44px rgba(0, 0, 0, 0.45),
+    0 0 40px rgba(77, 141, 255, 0.35);
 }
 
 .rows {
+  display: grid;
+  gap: 22px;
   min-width: 0;
 }
 
 .skeleton {
-  height: 60px;
-  margin: 4px 0;
+  height: 44px;
   border-radius: var(--radius-md);
   background: var(--accent-soft);
   opacity: 0.5;
@@ -40,7 +41,6 @@
   color: var(--text-muted);
 }
 
-/* Kart çok daralırsa küre gizlenir, metrikler tam genişliği alır */
 @container (max-width: 340px) {
   .body {
     grid-template-columns: minmax(0, 1fr);

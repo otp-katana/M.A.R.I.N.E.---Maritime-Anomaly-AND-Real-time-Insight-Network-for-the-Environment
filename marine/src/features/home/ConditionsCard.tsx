@@ -36,6 +36,7 @@ export function ConditionsCard() {
           <AreaChart
             key={tab}
             points={series.points}
+            height={186}
             unit={series.unit}
             decimals={series.decimals}
             tickSuffix={series.tickSuffix}

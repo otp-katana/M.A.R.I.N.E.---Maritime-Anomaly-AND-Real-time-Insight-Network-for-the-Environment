@@ -5,21 +5,25 @@
 }
 
 .main {
-  display: flex;
-  flex-direction: column;
   min-width: 0;
 }
 
-.content {
-  flex: 1;
-  width: 100%;
+.frame {
+  position: relative;
   max-width: 1680px;
   margin-inline: auto;
-  padding: 0 var(--space-6) var(--space-6);
+  padding: var(--space-6) var(--content-padding);
 }
 
-@media (max-width: 900px) {
+/* FRONTEND.md: 1440 px altında kompakt (80 px) kenar çubuğu */
+@media (max-width: 1439px) {
   .shell {
-    --sidebar-width: 84px;
+    --sidebar-width: 80px;
+  }
+}
+
+@media (max-width: 720px) {
+  .frame {
+    padding-inline: var(--space-4);
   }
 }

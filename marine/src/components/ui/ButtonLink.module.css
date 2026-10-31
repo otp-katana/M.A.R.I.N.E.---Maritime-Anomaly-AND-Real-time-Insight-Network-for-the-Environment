@@ -5,8 +5,8 @@
   height: 48px;
   padding: 0 26px;
   border-radius: var(--radius-pill);
-  font-size: 15px;
-  font-weight: 500;
+  font-size: 13px;
+  font-weight: 600;
   transition:
     transform var(--dur) var(--ease),
     box-shadow var(--dur) var(--ease),

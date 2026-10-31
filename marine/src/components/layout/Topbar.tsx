@@ -1,7 +1,4 @@
 import { useEffect, useRef } from 'react'
-import { LiveBadge } from '@/components/ui'
-import { mockStatus } from '@/data/mock/status'
-import { formatUtcStamp } from '@/utils/format'
 import { SearchIcon, UserIcon } from './icons'
 import styles from './Topbar.module.css'
 
@@ -24,34 +21,21 @@ export function Topbar() {
 
   return (
     <header className={styles.topbar}>
-      <div className={styles.status}>
-        <LiveBadge />
-        <span className={styles.updated}>
-          Last Updated: <span className="num">{formatUtcStamp(mockStatus.lastUpdated)}</span>
-        </span>
-      </div>
+      <form className={styles.search} role="search" onSubmit={(e) => e.preventDefault()}>
+        <SearchIcon width={18} height={18} className={styles.searchIcon} />
+        <input
+          ref={inputRef}
+          className={styles.input}
+          type="search"
+          placeholder="Search regions, data, or insights..."
+          aria-label="Ara"
+        />
+        <kbd className={styles.kbd}>{isMac ? '⌘ K' : 'Ctrl K'}</kbd>
+      </form>
 
-      <div className={styles.right}>
-        <form
-          className={styles.search}
-          role="search"
-          onSubmit={(e) => e.preventDefault()}
-        >
-          <SearchIcon width={18} height={18} className={styles.searchIcon} />
-          <input
-            ref={inputRef}
-            className={styles.input}
-            type="search"
-            placeholder="Search regions, data, or insights..."
-            aria-label="Ara"
-          />
-          <kbd className={styles.kbd}>{isMac ? '⌘ K' : 'Ctrl K'}</kbd>
-        </form>
-
-        <button type="button" className={styles.avatar} aria-label="Profil">
-          <UserIcon width={20} height={20} />
-        </button>
-      </div>
+      <button type="button" className={styles.avatar} aria-label="Profil">
+        <UserIcon width={20} height={20} />
+      </button>
     </header>
   )
 }

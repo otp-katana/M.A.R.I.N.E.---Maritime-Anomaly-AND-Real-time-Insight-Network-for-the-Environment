@@ -31,10 +31,11 @@ function linePath(pts: [number, number][]): string {
 type Props = {
   values: number[]
   className?: string
+  height?: number
 }
 
 /** Rengi `currentColor` üzerinden alır; üst elemandan `color` verin. */
-export function Sparkline({ values, className }: Props) {
+export function Sparkline({ values, className, height = 44 }: Props) {
   const rawId = useId()
   const gradId = `spark-${rawId.replace(/:/g, '')}`
   if (values.length < 2) return null
@@ -47,6 +48,7 @@ export function Sparkline({ values, className }: Props) {
   return (
     <svg
       className={cx(styles.svg, className)}
+      style={{ height }}
       viewBox={`0 0 ${W} ${H}`}
       preserveAspectRatio="none"
       aria-hidden="true"

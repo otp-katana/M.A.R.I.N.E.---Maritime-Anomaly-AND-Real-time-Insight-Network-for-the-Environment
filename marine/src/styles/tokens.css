@@ -4,46 +4,58 @@
 :root {
   color-scheme: dark;
 
-  /* Zemin */
-  --bg-base: #050a1c;
-  --bg-glow-a: rgba(56, 120, 255, 0.22);
-  --bg-glow-b: rgba(139, 109, 255, 0.16);
-  --bg-glow-c: rgba(53, 212, 255, 0.1);
+  /* Zemin (Deep Space / Midnight Navy) */
+  --bg-base: #080d1b;
+  --bg-glow-a: rgba(57, 120, 255, 0.22);
+  --bg-glow-b: rgba(146, 117, 255, 0.16);
+  --bg-glow-c: rgba(57, 217, 255, 0.1);
 
-  /* Yüzeyler (cam kartlar) */
-  --surface: rgba(16, 27, 66, 0.55);
-  --surface-hover: rgba(22, 36, 84, 0.65);
-  --surface-solid: #0d1838;
-  --sidebar-bg: rgba(7, 14, 38, 0.72);
-  --border: rgba(130, 170, 255, 0.16);
-  --border-strong: rgba(130, 170, 255, 0.34);
-  --inner-highlight: rgba(255, 255, 255, 0.06);
+  /* Cam yüzeyler */
+  --surface: rgba(19, 38, 72, 0.42);
+  --surface-hover: rgba(27, 55, 96, 0.55);
+  --surface-solid: #14294a;
+  --sidebar-bg: rgba(11, 23, 48, 0.72);
+  --border: rgba(145, 190, 255, 0.18);
+  --border-strong: rgba(145, 190, 255, 0.36);
+  --border-hover: rgba(57, 217, 255, 0.4);
+  --inner-highlight: rgba(255, 255, 255, 0.08);
 
   /* Metin */
-  --text-primary: #eaf1ff;
-  --text-secondary: #9fb0d6;
-  --text-muted: #6b7ba3;
+  --text-primary: #edf5ff;
+  --text-secondary: #91a8c8;
+  --text-muted: #6d86aa;
 
   /* Vurgu renkleri */
-  --accent-cyan: #35d4ff;
+  --accent-cyan: #39d9ff;
+  --accent-ice: #8bdfff;
   --accent-blue: #4d8dff;
-  --accent-violet: #8b6dff;
-  --accent-orange: #ff9f43;
-  --accent-green: #3ddc97;
-  --danger: #ff5d73;
+  --accent-violet: #9275ff;
+  --accent-orange: #ffb454;
+  --accent-green: #35d6a0;
+  --danger: #ff657a;
   --accent-soft: rgba(77, 141, 255, 0.16);
-  --grad-accent: linear-gradient(135deg, #5fd0ff 0%, #6f8bff 55%, #9b7bff 100%);
-  --grad-title: linear-gradient(180deg, #ffffff 0%, #b9c8f5 100%);
+  --grad-accent: linear-gradient(135deg, #8bdfff 0%, #5aa2ff 55%, #9275ff 100%);
+  --grad-title: linear-gradient(95deg, #ffffff 0%, #dbeaff 55%, #c9c3ff 100%);
 
   /* Gölge ve efektler */
-  --shadow-card: 0 10px 40px rgba(0, 0, 0, 0.35),
+  --shadow-card: 0 12px 35px rgba(0, 0, 0, 0.18),
     inset 0 1px 0 var(--inner-highlight);
-  --glow-cyan: 0 0 24px rgba(53, 212, 255, 0.35);
+  --glow-cyan: 0 0 24px rgba(57, 217, 255, 0.35);
   --blur: 18px;
 
   /* Tipografi */
-  --font-sans: 'Outfit Variable', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --font-mono: 'JetBrains Mono Variable', ui-monospace, 'Cascadia Code', monospace;
+  --font-sans: 'Inter Variable', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'Space Grotesk Variable', var(--font-sans);
+
+  /* Hero tipografisi (font laboratuvarı sonucu) */
+  --hero-title-font: var(--font-display);
+  --hero-title-weight: 700;
+  --hero-title-size: clamp(40px, 4.4vw, 72px);
+  --hero-title-tracking: 0.02em;
+  --hero-sub-font: var(--font-display);
+  --hero-sub-weight: 500;
+  --hero-sub-size: clamp(22px, 2.3vw, 38px);
+  --hero-indent: 48px;
 
   /* Boşluk ölçeği (4px tabanlı) */
   --space-1: 4px;
@@ -57,14 +69,23 @@
 
   /* Köşe yuvarlaklığı */
   --radius-sm: 10px;
-  --radius-md: 14px;
+  --radius-md: 16px;
   --radius-lg: 20px;
+  --radius-xl: 24px;
   --radius-pill: 999px;
 
-  /* Yerleşim */
-  --sidebar-width: 168px;
-  --topbar-height: 72px;
-  --content-gap: 20px;
+  /* Yerleşim (FRONTEND.md) */
+  --sidebar-width: 164px;
+  --content-padding: 30px;
+  --card-gap: 18px;
+  --content-gap: 18px;
+  --section-gap: 20px;
+  --stage-height: 397px;
+  --rail-width: 262px;
+
+  /* Menü renkleri */
+  --nav-icon: #8bafea;
+  --nav-active-text: #f0f6ff;
 
   /* Hareket */
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -77,8 +98,8 @@
 
   --bg-base: #e9f0fb;
   --bg-glow-a: rgba(77, 141, 255, 0.28);
-  --bg-glow-b: rgba(139, 109, 255, 0.16);
-  --bg-glow-c: rgba(53, 212, 255, 0.18);
+  --bg-glow-b: rgba(146, 117, 255, 0.16);
+  --bg-glow-c: rgba(57, 217, 255, 0.18);
 
   --surface: rgba(255, 255, 255, 0.68);
   --surface-hover: rgba(255, 255, 255, 0.85);
@@ -86,6 +107,7 @@
   --sidebar-bg: rgba(255, 255, 255, 0.72);
   --border: rgba(40, 80, 160, 0.14);
   --border-strong: rgba(40, 80, 160, 0.3);
+  --border-hover: rgba(10, 167, 214, 0.5);
   --inner-highlight: rgba(255, 255, 255, 0.8);
 
   --text-primary: #0c1a3a;
@@ -93,14 +115,19 @@
   --text-muted: #7a8aaf;
 
   --accent-cyan: #0aa7d6;
+  --accent-ice: #3fb6e0;
   --accent-blue: #2f6fe8;
   --accent-violet: #6b4be0;
   --accent-orange: #e8820f;
   --accent-green: #16a870;
+  --danger: #e0364f;
   --accent-soft: rgba(47, 111, 232, 0.12);
-  --grad-title: linear-gradient(180deg, #0c1a3a 0%, #34497d 100%);
+  --grad-title: linear-gradient(95deg, #0c1a3a 0%, #34497d 100%);
 
   --shadow-card: 0 8px 30px rgba(30, 60, 130, 0.12),
     inset 0 1px 0 var(--inner-highlight);
   --glow-cyan: 0 0 20px rgba(10, 167, 214, 0.25);
+
+  --nav-icon: #4a6aa6;
+  --nav-active-text: #0c1a3a;
 }

@@ -3,7 +3,7 @@
 }
 
 .skeleton {
-  height: 230px;
+  height: 186px;
   border-radius: var(--radius-md);
   background: var(--accent-soft);
   opacity: 0.5;

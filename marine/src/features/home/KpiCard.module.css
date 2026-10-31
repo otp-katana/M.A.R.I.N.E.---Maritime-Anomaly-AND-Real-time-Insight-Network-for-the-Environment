@@ -1,7 +1,13 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .top {
   display: flex;
-  align-items: flex-start;
-  gap: 14px;
+  align-items: center;
+  gap: 12px;
 }
 
 .icon {
@@ -10,7 +16,7 @@
   width: 42px;
   height: 42px;
   flex-shrink: 0;
-  border-radius: var(--radius-md);
+  border-radius: 14px;
   background: var(--accent-soft);
   color: var(--accent-cyan);
 }
@@ -20,60 +26,57 @@
   min-width: 0;
 }
 
-.labelRow {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: var(--space-2);
-}
-
 .label {
-  font-size: 13px;
+  overflow: hidden;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
   color: var(--text-secondary);
-  line-height: 1.3;
-}
-
-.cadence {
-  flex-shrink: 0;
-  padding: 1px 8px;
-  font-size: 10px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-pill);
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .valueRow {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  gap: var(--space-3);
-  margin-top: 2px;
+  gap: 8px;
 }
 
 .value {
-  font-size: 30px;
-  font-weight: 500;
-  line-height: 1.15;
+  font-size: 23px;
+  font-weight: 600;
+  line-height: 28px;
+  white-space: nowrap;
 }
 
 .unit {
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 400;
   color: var(--text-secondary);
 }
 
+.side {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
 .delta {
-  font-size: 13px;
+  font-size: 11px;
+  font-weight: 500;
 }
 
 .good    { color: var(--accent-green); }
 .bad     { color: var(--accent-orange); }
 .neutral { color: var(--text-muted); }
 
-.spark {
-  margin-top: var(--space-3);
+.cadence {
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
 }
 
 .calm { color: var(--accent-cyan); }

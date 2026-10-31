@@ -1,37 +1,37 @@
 .stage {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 320px;
-  gap: var(--content-gap);
-  align-items: center;
-}
-
-.heroArea {
   position: relative;
-  display: flex;
-  align-items: center;
-  min-height: 500px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) var(--rail-width);
+  column-gap: var(--card-gap);
+  align-items: start;
+  height: var(--stage-height);
 }
 
-/* Küre bu yuvanın içinde durur; konum ve boyutu burada belirlenir */
 .globeSlot {
+  --globe-size: clamp(380px, 37.6vw, 620px);
   position: absolute;
-  top: 50%;
-  right: -2%;
-  width: min(60%, 660px);
-  transform: translateY(-50%);
+  z-index: 0;
+  width: var(--globe-size);
+  left: calc(60.8% - var(--globe-size) / 2);
+  top: calc(211px - var(--globe-size) / 2);
 }
 
 .panels {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr) 320px;
-  gap: var(--content-gap);
-  margin-top: var(--content-gap);
+  grid-template-columns:
+    minmax(0, 516fr)
+    minmax(0, 558fr)
+    minmax(0, 318fr);
+  grid-auto-rows: 294px;
+  gap: var(--card-gap);
+  margin-top: var(--section-gap);
 }
 
-/* Orta genişlik: ilk iki kart yan yana, Data Sources altta tam genişlikte */
-@media (max-width: 1280px) {
+/* Orta genişlik: iki sütun, Data Sources altta tam genişlikte */
+@media (max-width: 1439px) {
   .panels {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: minmax(294px, auto);
   }
 
   .panels > :last-child {
@@ -42,15 +42,16 @@
 @media (max-width: 1100px) {
   .stage {
     grid-template-columns: minmax(0, 1fr);
-  }
-
-  .heroArea {
-    min-height: 440px;
+    row-gap: var(--card-gap);
+    height: auto;
   }
 
   .globeSlot {
-    width: min(78%, 520px);
-    opacity: 0.55;
+    --globe-size: min(70vw, 420px);
+    left: auto;
+    right: 0;
+    top: 0;
+    opacity: 0.5;
   }
 
   .panels {

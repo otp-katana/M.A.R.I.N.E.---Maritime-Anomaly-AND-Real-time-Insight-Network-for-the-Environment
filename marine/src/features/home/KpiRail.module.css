@@ -1,10 +1,13 @@
 .rail {
+  position: relative;
+  z-index: 1;
   display: grid;
-  gap: var(--content-gap);
+  grid-auto-rows: 100px;
+  gap: 12px;
+  margin-top: 78px;
 }
 
 .skeleton {
-  min-height: 128px;
   overflow: hidden;
 }
 
@@ -25,7 +28,8 @@
 
 @media (max-width: 1100px) {
   .rail {
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    margin-top: 0;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   }
 }
 

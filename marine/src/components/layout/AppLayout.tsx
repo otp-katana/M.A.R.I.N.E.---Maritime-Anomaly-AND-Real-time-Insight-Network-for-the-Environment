@@ -8,10 +8,12 @@ export function AppLayout() {
     <div className={styles.shell}>
       <Sidebar />
       <div className={styles.main}>
-        <Topbar />
-        <main className={styles.content}>
-          <Outlet />
-        </main>
+        <div className={styles.frame}>
+          <Topbar />
+          <main>
+            <Outlet />
+          </main>
+        </div>
       </div>
     </div>
   )

@@ -26,25 +26,26 @@ export function KpiCard({ metric }: { metric: KpiMetric }) {
   const Icon = ICONS[metric.icon]
 
   return (
-    <GlassCard>
+    <GlassCard padding="compact" className={styles.card}>
       <div className={styles.top}>
         <span className={styles.icon}>
           <Icon />
         </span>
 
         <div className={styles.meta}>
-          <div className={styles.labelRow}>
-            <span className={styles.label}>{metric.label}</span>
-            <span className={styles.cadence}>{CADENCE_LABEL[metric.cadence]}</span>
+          <div className={styles.label} title={metric.label}>
+            {metric.label}
           </div>
-
           <div className={styles.valueRow}>
             <span className={cx('num', styles.value)}>
               {formatValue(metric)}
               {metric.unit && <span className={styles.unit}> {metric.unit}</span>}
             </span>
-            <span className={cx('num', styles.delta, styles[metric.sentiment])}>
-              {formatDelta(metric.delta, metric.deltaDecimals)}
+            <span className={styles.side}>
+              <span className={cx('num', styles.delta, styles[metric.sentiment])}>
+                {formatDelta(metric.delta, metric.deltaDecimals)}
+              </span>
+              <span className={styles.cadence}>{CADENCE_LABEL[metric.cadence]}</span>
             </span>
           </div>
         </div>
@@ -52,7 +53,8 @@ export function KpiCard({ metric }: { metric: KpiMetric }) {
 
       <Sparkline
         values={metric.series}
-        className={cx(styles.spark, metric.sentiment === 'bad' ? styles.warn : styles.calm)}
+        height={24}
+        className={metric.sentiment === 'bad' ? styles.warn : styles.calm}
       />
     </GlassCard>
   )

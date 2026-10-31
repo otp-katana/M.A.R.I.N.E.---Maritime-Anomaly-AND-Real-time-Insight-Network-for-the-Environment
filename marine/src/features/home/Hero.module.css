@@ -1,17 +1,37 @@
 .hero {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  max-width: 560px;
-  padding: var(--space-8) 0 var(--space-6);
-  position: relative;
-  z-index: 1;
+  padding: 38px 0 0 var(--hero-indent);
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  height: 27px;
+  padding: 0 14px;
+  font-size: 11px;
+  color: var(--text-secondary);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  -webkit-backdrop-filter: blur(var(--blur));
+  backdrop-filter: blur(var(--blur));
+}
+
+.updated {
+  white-space: nowrap;
 }
 
 .title {
-  font-size: clamp(36px, 4.4vw, 72px);
-  font-weight: 200;
-  letter-spacing: 0.06em;
+  margin-top: 27px;
+  font-family: var(--hero-title-font);
+  font-size: var(--hero-title-size);
+  font-weight: var(--hero-title-weight);
+  letter-spacing: var(--hero-title-tracking);
   line-height: 1.05;
   background: var(--grad-title);
   -webkit-background-clip: text;
@@ -20,9 +40,11 @@
 }
 
 .tagline {
-  margin-top: var(--space-2);
-  font-size: clamp(20px, 2.4vw, 34px);
-  font-weight: 300;
+  margin-top: 8px;
+  font-family: var(--hero-sub-font);
+  font-size: var(--hero-sub-size);
+  font-weight: var(--hero-sub-weight);
+  line-height: 1.2;
   background: var(--grad-accent);
   -webkit-background-clip: text;
   background-clip: text;
@@ -30,9 +52,9 @@
 }
 
 .description {
-  max-width: 440px;
-  margin-top: var(--space-5);
-  font-size: 16px;
+  max-width: 400px;
+  margin-top: 9px;
+  font-size: 15px;
   line-height: 1.6;
   color: var(--text-secondary);
 }
@@ -41,5 +63,11 @@
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
-  margin-top: var(--space-8);
+  margin-top: 15px;
+}
+
+@media (max-width: 1100px) {
+  .hero {
+    padding-left: 0;
+  }
 }

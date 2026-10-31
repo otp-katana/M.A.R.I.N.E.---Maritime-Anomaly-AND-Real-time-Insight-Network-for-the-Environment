@@ -54,7 +54,7 @@ export type ConditionSeries = {
   points: SeriesPoint[]
 }
 
-export type SourceStatus = 'online' | 'delayed' | 'planned'
+export type SourceStatus = 'online' | 'delayed' | 'error' | 'planned'
 export type SourceIcon = 'buoy' | 'orbit' | 'alert' | 'globe'
 
 export type DataSource = {

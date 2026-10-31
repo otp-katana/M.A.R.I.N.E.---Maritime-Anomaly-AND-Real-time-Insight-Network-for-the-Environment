@@ -15,6 +15,7 @@ const STATUS_LABEL: Record<SourceStatus, string> = {
   online: 'Online',
   delayed: 'Delayed',
   planned: 'Planned',
+  error: 'Error',
 }
 
 export function SourceRow({ source }: { source: DataSource }) {

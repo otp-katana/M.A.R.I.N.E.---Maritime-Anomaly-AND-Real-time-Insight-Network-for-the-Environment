@@ -17,8 +17,10 @@ export const router = createBrowserRouter([
       { path: 'analytics', element: <AnalyticsPage /> },
       { path: 'sources', element: <SourcesPage /> },
       { path: 'about', element: <AboutPage /> },
+      
       {
-        path: '*',
+        
+        path:  '*',
         element: <PlaceholderPage title="404" description="Sayfa bulunamadı." />,
       },
     ],

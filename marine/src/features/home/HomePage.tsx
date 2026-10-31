@@ -10,16 +10,14 @@ const Globe = lazy(() => import('./Globe').then((m) => ({ default: m.Globe })))
 
 export function HomePage() {
   return (
-    <div className={styles.page}>
+    <>
       <section className={styles.stage}>
-        <div className={styles.heroArea}>
-          <div className={styles.globeSlot}>
-            <Suspense fallback={null}>
-              <Globe />
-            </Suspense>
-          </div>
-          <Hero />
+        <div className={styles.globeSlot}>
+          <Suspense fallback={null}>
+            <Globe />
+          </Suspense>
         </div>
+        <Hero />
         <KpiRail />
       </section>
 
@@ -28,6 +26,6 @@ export function HomePage() {
         <ConditionsCard />
         <DataSourcesCard />
       </section>
-    </div>
+    </>
   )
 }

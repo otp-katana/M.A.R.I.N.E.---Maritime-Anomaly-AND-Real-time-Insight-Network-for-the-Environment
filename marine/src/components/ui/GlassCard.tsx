@@ -4,7 +4,7 @@ import styles from './GlassCard.module.css'
 
 type GlassCardProps<T extends ElementType> = {
   as?: T
-  padding?: 'none' | 'sm' | 'md' | 'lg'
+  padding?: 'none' | 'sm' | 'md' | 'lg' | 'compact'
   interactive?: boolean
   glow?: boolean
   className?: string

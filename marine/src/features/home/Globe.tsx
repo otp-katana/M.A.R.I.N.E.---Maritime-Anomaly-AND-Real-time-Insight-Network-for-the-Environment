@@ -63,7 +63,7 @@ export function Globe({ className }: { className?: string }) {
       style: GLOBE_STYLE,
       center: START_CENTER,
       zoom: fitZoom(Math.min(container.clientWidth, container.clientHeight)),
-      attributionControl: { compact: true },
+      attributionControl: false,
       // Süs amaçlı küre: sadece sürükleyerek döndürülebilsin, sayfa kaydırmayı engellemesin
       scrollZoom: false,
       doubleClickZoom: false,
