@@ -3,6 +3,7 @@ import { Outlet, useLocation } from 'react-router-dom'
 import { Sidebar } from './Sidebar'
 import { Topbar } from './Topbar'
 import styles from './AppLayout.module.css'
+import { BackgroundArt } from './BackgroundArt'
 
 export function AppLayout() {
   const [navOpen, setNavOpen] = useState(false)
@@ -47,6 +48,7 @@ export function AppLayout() {
 
   return (
     <div className={styles.shell}>
+      <BackgroundArt />
       <Sidebar open={navOpen} />
       {navOpen && <div className={styles.scrim} onClick={closeNav} aria-hidden="true" />}
       <div className={styles.main}>

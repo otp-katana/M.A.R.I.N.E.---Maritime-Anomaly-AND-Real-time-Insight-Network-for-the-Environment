@@ -16,15 +16,22 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 6px;
-  height: 65px;
+  justify-content: flex-start;
+  gap: 8px;
+  padding-top: 8px;
+}
+
+.brand svg {
+  flex-shrink: 0;
+  width: 56px;
+  height: auto;
 }
 
 .wordmark {
   font-family: var(--font-display);
-  font-size: 12px;
+  font-size: 17px;
   font-weight: 500;
+  line-height: 1;
   letter-spacing: 0.14em;
   color: var(--text-primary);
 }
@@ -33,7 +40,7 @@
   display: flex;
   flex-direction: column;
   gap: 7px;
-  margin-top: 66px;
+  margin-top: 53px;
 }
 
 .link {
@@ -113,7 +120,7 @@
   color: var(--text-muted);
 }
 
-/* Kompakt mod: yalnızca ikonlar */
+/* Kompakt mod (1024–1439 px): yalnızca ikonlar */
 @media (max-width: 1439px) {
   .sidebar {
     align-items: center;
@@ -121,7 +128,11 @@
   }
 
   .brand {
-    height: auto;
+    padding-top: 0;
+  }
+
+  .brand svg {
+    width: 44px;
   }
 
   .wordmark,
@@ -146,7 +157,7 @@
   }
 }
 
-/* Çekmece modu (1024 px altı) */
+/* Çekmece modu (1023 px altı) */
 @media (max-width: 1023px) {
   .sidebar {
     position: fixed;
@@ -160,7 +171,6 @@
     box-shadow: 12px 0 40px rgba(0, 0, 0, 0.35);
     transform: translateX(-100%);
     visibility: hidden;
-    /* Kapanırken visibility animasyon bitince değişir */
     transition:
       transform var(--dur) var(--ease),
       visibility 0s linear var(--dur);
@@ -176,7 +186,11 @@
 
   /* Kompakt mod ayarlarını geri al: ikon + metin */
   .brand {
-    height: 65px;
+    padding-top: 8px;
+  }
+
+  .brand svg {
+    width: 56px;
   }
 
   .wordmark,
@@ -186,7 +200,7 @@
   }
 
   .nav {
-    margin-top: 66px;
+    margin-top: 53px;
   }
 
   .link {

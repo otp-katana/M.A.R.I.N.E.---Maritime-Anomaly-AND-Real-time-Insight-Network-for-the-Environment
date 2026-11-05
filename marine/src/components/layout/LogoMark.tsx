@@ -1,7 +1,13 @@
-export function LogoMark({ size = 40 }: { size?: number }) {
+export function LogoMark({ size = 56 }: { size?: number }) {
   const wave = (y: number) => `M6 ${y}c4-5 8-5 12 0s8 5 12 0 8-5 12 0`
   return (
-    <svg width={size} height={size} viewBox="0 0 48 48" fill="none" aria-hidden="true">
+    <svg
+      width={size}
+      height={size * 0.8}
+      viewBox="4 8 40 32"
+      fill="none"
+      aria-hidden="true"
+    >
       <defs>
         <linearGradient
           id="marine-logo-grad"
