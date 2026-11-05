@@ -151,7 +151,6 @@
   --glass-edge-a: rgba(185, 200, 255, 0.45);
   --glass-edge-b: rgba(255, 190, 190, 0.3);
   --glass-saturate: 140%;
-  --glass-warm: rgba(255, 176, 160, 0.16);
 
   --art-aurora-a: rgba(77, 141, 255, 0.3);
   --art-aurora-b: rgba(146, 117, 255, 0.2);
@@ -160,4 +159,15 @@
   --art-wave-a: #2f6fe8;
   --art-wave-b: #6b4be0;
   --art-wave-opacity: 0.3;
+
+  --glass-warm: rgba(255, 176, 160, 0.16);
+
+  /* Arka plan dokusu (BackgroundArt) */
+  --art-aurora-a: rgba(47, 102, 240, 0.34);
+  --art-aurora-b: rgba(107, 76, 240, 0.28);
+  --art-aurora-c: rgba(79, 224, 238, 0.1);
+  --art-aurora-d: rgba(60, 50, 180, 0.18);
+  --art-wave-a: #5b8cff;
+  --art-wave-b: #8a6cff;
+  --art-wave-opacity: 0.5;
 }

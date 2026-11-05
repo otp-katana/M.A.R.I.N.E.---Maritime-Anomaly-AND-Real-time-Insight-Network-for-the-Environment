@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
+import { BackgroundArt } from './BackgroundArt'
 import { Sidebar } from './Sidebar'
 import { Topbar } from './Topbar'
 import styles from './AppLayout.module.css'
-import { BackgroundArt } from './BackgroundArt'
 
 export function AppLayout() {
   const [navOpen, setNavOpen] = useState(false)

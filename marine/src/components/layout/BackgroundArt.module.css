@@ -6,14 +6,15 @@
   pointer-events: none;
 }
 
+/* Referans dağılımı: sol-altta mavi duman, sağda mor sis */
 .aurora {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(60% 50% at 8% 72%, var(--art-aurora-a), transparent 70%),
-    radial-gradient(50% 45% at 78% 38%, var(--art-aurora-b), transparent 70%),
+    radial-gradient(55% 55% at 6% 80%, var(--art-aurora-a), transparent 70%),
+    radial-gradient(45% 50% at 86% 45%, var(--art-aurora-b), transparent 70%),
     radial-gradient(45% 40% at 55% 105%, var(--art-aurora-c), transparent 70%),
-    radial-gradient(40% 35% at 20% 5%, var(--art-aurora-d), transparent 70%);
+    radial-gradient(40% 35% at 25% 0%, var(--art-aurora-d), transparent 70%);
 }
 
 .waves {
