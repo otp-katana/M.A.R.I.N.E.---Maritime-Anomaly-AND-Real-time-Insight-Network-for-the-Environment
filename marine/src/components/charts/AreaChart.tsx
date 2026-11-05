@@ -37,7 +37,9 @@ export function AreaChart({
   const wrapRef = useRef<HTMLDivElement>(null)
   const [width, setWidth] = useState(0)
   const [hover, setHover] = useState<number | null>(null)
-  const gradId = `area-${useId().replace(/:/g, '')}`
+  const uid = useId().replace(/:/g, '')
+  const gradId = `area-${uid}`
+  const lineId = `line-${uid}`
 
   useEffect(() => {
     const el = wrapRef.current
@@ -99,8 +101,19 @@ export function AreaChart({
           >
             <defs>
               <linearGradient id={gradId} x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stopColor="currentColor" stopOpacity="0.32" />
-                <stop offset="1" stopColor="currentColor" stopOpacity="0" />
+                <stop offset="0" style={{ stopColor: 'var(--chart-fill)', stopOpacity: 0.5 }} />
+                <stop offset="1" style={{ stopColor: 'var(--chart-fill)', stopOpacity: 0 }} />
+              </linearGradient>
+              <linearGradient
+                id={lineId}
+                gradientUnits="userSpaceOnUse"
+                x1={MARGIN.left}
+                y1="0"
+                x2={width - MARGIN.right}
+                y2="0"
+              >
+                <stop offset="0" style={{ stopColor: 'var(--chart-line-a)' }} />
+                <stop offset="1" style={{ stopColor: 'var(--chart-line-b)' }} />
               </linearGradient>
             </defs>
 
@@ -132,7 +145,7 @@ export function AreaChart({
             ))}
 
             <path d={g.area} fill={`url(#${gradId})`} />
-            <path className={styles.line} d={g.line} />
+            <path className={styles.line} d={g.line} stroke={`url(#${lineId})`} />
 
             <line
               className={styles.guide}

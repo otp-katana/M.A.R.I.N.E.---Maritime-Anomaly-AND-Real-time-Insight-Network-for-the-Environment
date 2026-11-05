@@ -46,6 +46,14 @@
   --glow-primary: 0 8px 28px rgba(95, 150, 255, 0.4);
   --grad-tab: linear-gradient(135deg, #5b8cff 0%, #8fc8ff 100%);
 
+  /* İkon daireleri ve grafik */
+  --icon-grad-blue: linear-gradient(135deg, #3d7bff 0%, #5fb0ff 100%);
+  --icon-grad-green: linear-gradient(135deg, #1fbf8a 0%, #4fe0b0 100%);
+  --icon-grad-orange: linear-gradient(135deg, #ff8a3d 0%, #ffb454 100%);
+  --chart-fill: #4d6bff;
+  --chart-line-a: #8f9bff;
+  --chart-line-b: #4fe0ee;
+
   /* Gölge ve efektler */
   --shadow-card: 0 12px 35px rgba(0, 0, 0, 0.18),
     inset 0 1px 0 var(--inner-highlight);
@@ -149,6 +157,10 @@
   --grad-title: linear-gradient(95deg, #0c1a3a 0%, #34497d 100%);
   --grad-tagline: linear-gradient(95deg, #34497d 0%, #5a4be0 100%);
   --text-hero-body: #4a5c85;
+
+  --chart-fill: #3f6fe8;
+  --chart-line-a: #5a4be0;
+  --chart-line-b: #0aa7d6;
 
   --shadow-card: 0 8px 30px rgba(30, 60, 130, 0.12),
     inset 0 1px 0 var(--inner-highlight);

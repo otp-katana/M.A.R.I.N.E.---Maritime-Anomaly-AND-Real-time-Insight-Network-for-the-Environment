@@ -16,9 +16,8 @@
   width: 42px;
   height: 42px;
   flex-shrink: 0;
-  border-radius: 14px;
-  background: var(--accent-soft);
-  color: var(--accent-cyan);
+  color: var(--accent-ice);
+  filter: drop-shadow(0 0 8px rgba(57, 217, 255, 0.55));
 }
 
 .meta {

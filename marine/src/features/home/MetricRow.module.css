@@ -10,13 +10,26 @@
   place-items: center;
   width: 44px;
   height: 44px;
-  border-radius: var(--radius-md);
-  background: color-mix(in srgb, currentColor 16%, transparent);
+  color: #fff;
+  background: var(--tone-grad);
+  border-radius: 50%;
+  box-shadow: 0 0 18px var(--tone-glow);
 }
 
-.cyan   { color: var(--accent-cyan); }
-.green  { color: var(--accent-green); }
-.orange { color: var(--accent-orange); }
+.cyan {
+  --tone-grad: var(--icon-grad-blue);
+  --tone-glow: rgba(77, 141, 255, 0.45);
+}
+
+.green {
+  --tone-grad: var(--icon-grad-green);
+  --tone-glow: rgba(53, 214, 160, 0.4);
+}
+
+.orange {
+  --tone-grad: var(--icon-grad-orange);
+  --tone-glow: rgba(255, 180, 84, 0.4);
+}
 
 .label {
   font-size: 12px;

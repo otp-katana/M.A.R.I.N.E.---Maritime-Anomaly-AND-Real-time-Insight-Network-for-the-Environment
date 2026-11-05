@@ -1,7 +1,7 @@
 .wrap {
   position: relative;
   width: 100%;
-  color: var(--accent-cyan);
+  color: var(--chart-line-b);
 }
 
 .svg {
@@ -21,7 +21,6 @@
 
 .line {
   fill: none;
-  stroke: currentColor;
   stroke-width: 2.25;
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -43,6 +42,7 @@
   fill: transparent;
   cursor: crosshair;
   touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .tooltip {
@@ -66,8 +66,4 @@
 .tipDate {
   font-size: 11px;
   color: var(--text-muted);
-}
-
-.overlay {
-  -webkit-tap-highlight-color: transparent;
 }
