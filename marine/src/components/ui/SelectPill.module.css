@@ -31,3 +31,11 @@
   color: var(--text-muted);
   pointer-events: none;
 }
+
+@media (max-width: 720px) {
+  .select {
+    min-height: 44px;
+    /* iOS Safari, 16 px altındaki alanlara odaklanınca sayfayı yakınlaştırır */
+    font-size: 16px;
+  }
+}

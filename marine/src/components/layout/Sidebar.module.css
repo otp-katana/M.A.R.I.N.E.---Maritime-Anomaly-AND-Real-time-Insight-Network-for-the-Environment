@@ -145,3 +145,64 @@
     border-radius: var(--radius-lg);
   }
 }
+
+/* Çekmece modu (1024 px altı) */
+@media (max-width: 1023px) {
+  .sidebar {
+    position: fixed;
+    inset: 0 auto 0 0;
+    z-index: 50;
+    width: min(280px, 85vw);
+    height: 100dvh;
+    align-items: stretch;
+    padding: 34px 19px 32px;
+    background: var(--surface-solid);
+    box-shadow: 12px 0 40px rgba(0, 0, 0, 0.35);
+    transform: translateX(-100%);
+    visibility: hidden;
+    /* Kapanırken visibility animasyon bitince değişir */
+    transition:
+      transform var(--dur) var(--ease),
+      visibility 0s linear var(--dur);
+  }
+
+  .open {
+    transform: translateX(0);
+    visibility: visible;
+    transition:
+      transform var(--dur) var(--ease),
+      visibility 0s;
+  }
+
+  /* Kompakt mod ayarlarını geri al: ikon + metin */
+  .brand {
+    height: 65px;
+  }
+
+  .wordmark,
+  .label,
+  .promo {
+    display: revert;
+  }
+
+  .nav {
+    margin-top: 66px;
+  }
+
+  .link {
+    justify-content: flex-start;
+    width: auto;
+    padding: 0 14px;
+  }
+
+  .footer .toggle {
+    flex-direction: row;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sidebar,
+  .open {
+    transition: none;
+  }
+}

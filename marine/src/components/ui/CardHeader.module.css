@@ -36,3 +36,10 @@
   margin-left: auto;
   flex-shrink: 0;
 }
+
+@media (max-width: 720px) {
+  .action {
+    flex-basis: 100%;
+    margin-left: 0;
+  }
+}

@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react'
 import type { ComponentType, SVGProps } from 'react'
 import { NavLink } from 'react-router-dom'
 import { ThemeToggle } from '@/components/ui'
@@ -21,15 +22,26 @@ const NAV: NavItem[] = [
   { to: '/about', label: 'About', icon: InfoIcon },
 ]
 
-export function Sidebar() {
+type SidebarProps = {
+  open: boolean
+}
+
+export function Sidebar({ open }: SidebarProps) {
+  const navRef = useRef<HTMLElement>(null)
+
+  // Çekmece açılınca odak ilk menü bağlantısına geçer
+  useEffect(() => {
+    if (open) navRef.current?.querySelector('a')?.focus({ preventScroll: true })
+  }, [open])
+
   return (
-    <aside className={styles.sidebar}>
+    <aside id="app-sidebar" className={cx(styles.sidebar, open && styles.open)}>
       <NavLink to="/" className={styles.brand} aria-label="M.A.R.I.N.E. ana sayfa">
         <LogoMark />
         <span className={styles.wordmark}>M.A.R.I.N.E.</span>
       </NavLink>
 
-      <nav className={styles.nav} aria-label="Ana menü">
+      <nav ref={navRef} className={styles.nav} aria-label="Ana menü">
         {NAV.map(({ to, label, icon: Icon, end }) => (
           <NavLink
             key={to}

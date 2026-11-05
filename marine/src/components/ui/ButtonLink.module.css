@@ -38,3 +38,10 @@
 .ghost:hover {
   background: var(--surface-hover);
 }
+
+.sm {
+  height: 42px;
+  padding: 0 18px;
+  gap: 8px;
+  font-size: 12px;
+}

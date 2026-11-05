@@ -67,3 +67,7 @@
   font-size: 11px;
   color: var(--text-muted);
 }
+
+.overlay {
+  -webkit-tap-highlight-color: transparent;
+}

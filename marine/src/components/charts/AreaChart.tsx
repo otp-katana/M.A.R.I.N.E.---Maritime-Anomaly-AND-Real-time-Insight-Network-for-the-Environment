@@ -151,7 +151,10 @@ export function AreaChart({
               height={g.innerH}
               onPointerMove={onMove}
               onPointerDown={onMove}
-              onPointerLeave={() => setHover(null)}
+              onPointerLeave={(e) => {
+                // Dokunmatikte parmak kalkınca seçili nokta kalsın
+                if (e.pointerType === 'mouse') setHover(null)
+              }}
             />
           </svg>
 

@@ -22,12 +22,24 @@
     background var(--dur) var(--ease);
 }
 
-.interactive:hover {
-  background: var(--surface-hover);
-  border-color: var(--border-hover);
-  transform: translateY(-4px);
+@media (hover: hover) {
+  .interactive:hover {
+    background: var(--surface-hover);
+    border-color: var(--border-hover);
+    transform: translateY(-4px);
+  }
 }
 
 .glow {
   box-shadow: var(--shadow-card), var(--glow-cyan);
+}
+
+@media (max-width: 480px) {
+  .md {
+    padding: var(--space-4);
+  }
+
+  .lg {
+    padding: var(--space-5);
+  }
 }

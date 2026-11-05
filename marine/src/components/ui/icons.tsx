@@ -97,3 +97,18 @@ export const GlobeIcon = (p: IconProps) => (
     <path d="M3 12h18M12 3c3.2 3 3.2 15 0 18M12 3c-3.2 3-3.2 15 0 18" />
   </Svg>
 )
+
+export const SparkleIcon = (p: IconProps) => (
+  <Svg {...p}>
+    <path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z" />
+    <path d="M19 15l.7 2 2 .7-2 .7-.7 2-.7-2-2-.7 2-.7z" />
+  </Svg>
+)
+
+export const LayersIcon = (p: IconProps) => (
+  <Svg {...p}>
+    <path d="M12 2.5 3 7.5l9 5 9-5z" />
+    <path d="M3 12l9 5 9-5" />
+    <path d="M3 16.5l9 5 9-5" />
+  </Svg>
+)

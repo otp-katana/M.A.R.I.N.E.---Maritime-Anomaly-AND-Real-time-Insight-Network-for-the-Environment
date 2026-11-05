@@ -66,3 +66,27 @@ export type DataSource = {
   status: SourceStatus
   icon: SourceIcon
 }
+
+export type InsightKind = 'measured' | 'modeled'
+
+export type Insight = {
+  id: string
+  title: string
+  summary: string
+  /** Gözlem mi (ölçüm), model çıktısı mı */
+  kind: InsightKind
+  region: string
+  dataset: string
+  /** ISO 8601, UTC */
+  observedAt: string
+}
+
+export type LayerTone = 'cyan' | 'violet' | 'orange'
+
+export type OceanLayer = {
+  id: string
+  name: string
+  /** Gösterim metni; sınırlar yaklaşık ve örnektir */
+  depth: string
+  tone: LayerTone
+}

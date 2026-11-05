@@ -1,0 +1,25 @@
+.svg {
+  display: block;
+  width: 170px;
+  height: 90px;
+}
+
+.cyan   { --tone: var(--accent-cyan); }
+.violet { --tone: var(--accent-violet); }
+.orange { --tone: var(--accent-orange); }
+
+.plane {
+  fill: color-mix(in srgb, var(--tone) 34%, transparent);
+  stroke: var(--tone);
+  stroke-width: 1.2;
+  stroke-linejoin: round;
+  opacity: 0.5;
+  transition:
+    opacity var(--dur) var(--ease),
+    filter var(--dur) var(--ease);
+}
+
+.active {
+  opacity: 1;
+  filter: drop-shadow(0 0 8px var(--tone));
+}

@@ -27,7 +27,18 @@
   margin-top: var(--section-gap);
 }
 
-/* Orta genişlik: iki sütun, Data Sources altta tam genişlikte */
+.panelsLow {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 672fr)
+    minmax(0, 438fr)
+    minmax(0, 282fr);
+  grid-auto-rows: 155px;
+  gap: var(--card-gap);
+  margin-top: var(--section-gap);
+}
+
+/* Orta genişlik: iki sütun. Data Sources ve Key Insights tam genişlikte */
 @media (max-width: 1439px) {
   .panels {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -37,8 +48,18 @@
   .panels > :last-child {
     grid-column: 1 / -1;
   }
+
+  .panelsLow {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: minmax(155px, auto);
+  }
+
+  .panelsLow > :first-child {
+    grid-column: 1 / -1;
+  }
 }
 
+/* Tablet: sahne tek sütun, KPI sütunu hero'nun altına iner */
 @media (max-width: 1100px) {
   .stage {
     grid-template-columns: minmax(0, 1fr);
@@ -53,8 +74,17 @@
     top: 0;
     opacity: 0.5;
   }
+}
 
-  .panels {
+/* Dar tablet ve mobil: paneller tek sütun */
+@media (max-width: 860px) {
+  .panels,
+  .panelsLow {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .panels > :last-child,
+  .panelsLow > :first-child {
+    grid-column: auto;
   }
 }

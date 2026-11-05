@@ -41,12 +41,14 @@
   color: var(--text-muted);
 }
 
-@container (max-width: 340px) {
+/* Orta genişlik: orb küçülür, metrik satırlarına yer açılır */
+@container (max-width: 380px) {
   .body {
-    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
   }
 
   .orb {
-    display: none;
+    width: 160px;
+    height: 160px;
   }
 }
