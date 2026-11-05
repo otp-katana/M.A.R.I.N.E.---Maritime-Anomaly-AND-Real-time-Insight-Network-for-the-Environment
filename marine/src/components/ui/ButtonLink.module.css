@@ -19,12 +19,12 @@
 
 .primary {
   color: #04122e;
-  background: linear-gradient(135deg, #7fd9ff, #5aa2ff);
-  box-shadow: 0 8px 28px rgba(77, 141, 255, 0.35);
+  background: var(--grad-primary);
+  box-shadow: var(--glow-primary);
 }
 
 .primary:hover {
-  box-shadow: 0 12px 34px rgba(77, 141, 255, 0.5);
+  box-shadow: 0 12px 34px rgba(95, 150, 255, 0.55);
 }
 
 .ghost {

@@ -74,14 +74,14 @@
 }
 
 .active {
-  color: var(--nav-active-text);
-  background: var(--accent-soft);
-  border-color: var(--border-strong);
-  box-shadow: var(--glow-cyan);
+  color: #fff;
+  background: var(--grad-nav-active);
+  border-color: transparent;
+  box-shadow: var(--glow-nav-active);
 }
 
 .active svg {
-  color: var(--accent-cyan);
+  color: #fff;
 }
 
 .footer {

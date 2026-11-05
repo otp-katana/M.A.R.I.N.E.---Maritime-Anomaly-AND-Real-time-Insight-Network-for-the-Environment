@@ -25,7 +25,7 @@
 .active:hover {
   font-weight: 500;
   color: #04122e;
-  background: linear-gradient(135deg, #7fd9ff, #5aa2ff);
+  background: var(--grad-tab);
 }
 
 @media (max-width: 720px) {
