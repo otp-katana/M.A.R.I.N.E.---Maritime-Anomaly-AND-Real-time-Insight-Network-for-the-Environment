@@ -65,6 +65,9 @@
   --glass-edge-a: rgba(160, 205, 255, 0.4);
   --glass-edge-b: rgba(146, 117, 255, 0.24);
   --glass-saturate: 150%;
+  --glass-warm-strong: rgba(255, 150, 120, 0.16);
+  --glass-highlight: rgba(255, 255, 255, 0.9);
+  --glass-shadow: rgba(30, 60, 130, 0.16);
 
   /* Arka plan dokusu (BackgroundArt) */
   --art-aurora-a: rgba(52, 110, 255, 0.28);
@@ -125,26 +128,26 @@
   --dur: 250ms;
 }
 
-[data-theme='light'] {
+:root[data-theme='light'] {
   color-scheme: light;
 
-  --bg-base: #060a1c;
+  --bg-base: #e9f0fb;
   --bg-glow-a: rgba(77, 141, 255, 0.28);
   --bg-glow-b: rgba(146, 117, 255, 0.16);
   --bg-glow-c: rgba(57, 217, 255, 0.18);
 
-  --surface: rgba(24, 30, 82, 0.42);
-  --surface-hover: rgba(34, 42, 104, 0.55);
-  --surface-solid: #121a46;
-  --sidebar-bg: rgba(10, 16, 48, 0.55);
-  --border: rgba(165, 180, 255, 0.2);
-  --border-strong: rgba(165, 180, 255, 0.38);
+  --surface: rgba(255, 255, 255, 0.68);
+  --surface-hover: rgba(255, 255, 255, 0.85);
+  --surface-solid: #ffffff;
+  --sidebar-bg: rgba(255, 255, 255, 0.72);
+  --border: rgba(40, 80, 160, 0.14);
+  --border-strong: rgba(40, 80, 160, 0.3);
   --border-hover: rgba(10, 167, 214, 0.5);
   --inner-highlight: rgba(255, 255, 255, 0.8);
 
-  --text-primary: #a3b0d8;
+  --text-primary: #0c1a3a;
   --text-secondary: #4a5c85;
-  --text-muted: #7787b6;
+  --text-muted: #7a8aaf;
 
   --accent-cyan: #0aa7d6;
   --accent-ice: #3fb6e0;
@@ -153,14 +156,11 @@
   --accent-orange: #e8820f;
   --accent-green: #16a870;
   --danger: #e0364f;
-  --accent-soft: rgba(94, 128, 255, 0.18);
+  --accent-soft: rgba(47, 111, 232, 0.12);
+
   --grad-title: linear-gradient(95deg, #0c1a3a 0%, #34497d 100%);
   --grad-tagline: linear-gradient(95deg, #34497d 0%, #5a4be0 100%);
   --text-hero-body: #4a5c85;
-
-  --chart-fill: #3f6fe8;
-  --chart-line-a: #5a4be0;
-  --chart-line-b: #0aa7d6;
 
   --shadow-card: 0 8px 30px rgba(30, 60, 130, 0.12),
     inset 0 1px 0 var(--inner-highlight);
@@ -169,12 +169,18 @@
   --nav-icon: #4a6aa6;
   --nav-active-text: #0c1a3a;
 
-  --glass-top: rgba(36, 46, 112, 0.5);
-  --glass-bottom: rgba(18, 24, 68, 0.36);
-  --glass-edge-a: rgba(185, 200, 255, 0.45);
-  --glass-edge-b: rgba(255, 190, 190, 0.3);
+  /* Cam yüzey */
+  --glass-top: rgba(255, 255, 255, 0.8);
+  --glass-bottom: rgba(255, 255, 255, 0.56);
+  --glass-edge-a: rgba(255, 255, 255, 0.9);
+  --glass-edge-b: rgba(107, 75, 224, 0.2);
   --glass-saturate: 140%;
+  --glass-warm: rgba(255, 150, 120, 0.1);
+  --glass-warm-strong: rgba(255, 150, 120, 0.16);
+  --glass-highlight: rgba(255, 255, 255, 0.9);
+  --glass-shadow: rgba(30, 60, 130, 0.16);
 
+  /* Arka plan dokusu */
   --art-aurora-a: rgba(77, 141, 255, 0.3);
   --art-aurora-b: rgba(146, 117, 255, 0.2);
   --art-aurora-c: rgba(57, 217, 255, 0.2);
@@ -183,14 +189,8 @@
   --art-wave-b: #6b4be0;
   --art-wave-opacity: 0.3;
 
-  --glass-warm: rgba(255, 176, 160, 0.16);
-
-  /* Arka plan dokusu (BackgroundArt) */
-  --art-aurora-a: rgba(47, 102, 240, 0.34);
-  --art-aurora-b: rgba(107, 76, 240, 0.28);
-  --art-aurora-c: rgba(79, 224, 238, 0.1);
-  --art-aurora-d: rgba(60, 50, 180, 0.18);
-  --art-wave-a: #5b8cff;
-  --art-wave-b: #8a6cff;
-  --art-wave-opacity: 0.5;
+  /* Grafik */
+  --chart-fill: #3f6fe8;
+  --chart-line-a: #5a4be0;
+  --chart-line-b: #0aa7d6;
 }
