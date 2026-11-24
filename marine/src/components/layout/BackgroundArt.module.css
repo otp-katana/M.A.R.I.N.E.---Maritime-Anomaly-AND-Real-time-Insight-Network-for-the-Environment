@@ -4,56 +4,39 @@
   z-index: -1;
   overflow: hidden;
   pointer-events: none;
-}
-
-/* Referans dağılımı: sol-altta mavi duman, sağda mor sis */
-.aurora {
-  position: absolute;
-  inset: 0;
   background:
-    radial-gradient(55% 55% at 6% 80%, var(--art-aurora-a), transparent 70%),
-    radial-gradient(45% 50% at 86% 45%, var(--art-aurora-b), transparent 70%),
-    radial-gradient(45% 40% at 55% 105%, var(--art-aurora-c), transparent 70%),
-    radial-gradient(40% 35% at 25% 0%, var(--art-aurora-d), transparent 70%);
+    radial-gradient(1200px 700px at 78% -10%, var(--bg-glow-a), transparent 60%),
+    radial-gradient(900px 600px at 10% 20%, var(--bg-glow-b), transparent 60%),
+    radial-gradient(900px 700px at 60% 110%, var(--bg-glow-c), transparent 60%),
+    var(--bg-base);
+  transition: background 0.45s ease;
 }
 
-.waves {
+.imageLayer {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  opacity: var(--art-wave-opacity);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: opacity 0.45s ease, filter 0.45s ease;
 }
 
-.waves path {
-  fill: none;
-  stroke-width: 1.2;
-  vector-effect: non-scaling-stroke;
+.darkLayer {
+  opacity: 1;
+  filter: saturate(1.05);
 }
 
-.low {
-  animation: driftLow 38s ease-in-out infinite alternate;
-  will-change: transform;
+.lightLayer {
+  opacity: 0;
+  filter: saturate(1.04);
 }
 
-.high {
-  animation: driftHigh 46s ease-in-out infinite alternate;
-  will-change: transform;
+:global([data-theme='light']) .darkLayer {
+  opacity: 0;
 }
 
-@keyframes driftLow {
-  from { transform: translate3d(0, 0, 0); }
-  to   { transform: translate3d(-60px, 14px, 0); }
-}
-
-@keyframes driftHigh {
-  from { transform: translate3d(0, 0, 0); }
-  to   { transform: translate3d(50px, -12px, 0); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .low,
-  .high {
-    animation: none;
-  }
+:global([data-theme='light']) .lightLayer {
+  opacity: 1;
 }

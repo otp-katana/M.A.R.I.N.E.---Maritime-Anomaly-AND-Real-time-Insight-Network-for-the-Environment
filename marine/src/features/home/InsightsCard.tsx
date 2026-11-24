@@ -1,4 +1,5 @@
-import { ButtonLink, CardHeader, GlassCard } from '@/components/ui'
+import { ButtonLink, CardHeader } from '@/components/ui'
+import { LiquidGlassCard } from '@/components/ui/LiquidGlassCard'
 import { ArrowRightIcon, SparkleIcon } from '@/components/ui/icons'
 import { DATA_MODE } from '@/config'
 import { fetchInsights } from '@/data/api'
@@ -19,7 +20,7 @@ export function InsightsCard() {
   const insight = data?.[0]
 
   return (
-    <GlassCard padding="none">
+    <LiquidGlassCard padding="none">
       <div className={styles.inner}>
         <CardHeader
           icon={<SparkleIcon />}
@@ -63,6 +64,6 @@ export function InsightsCard() {
           </ButtonLink>
         </div>
       </div>
-    </GlassCard>
+    </LiquidGlassCard>
   )
 }

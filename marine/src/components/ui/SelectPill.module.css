@@ -1,23 +1,125 @@
 .root {
+  --c-glass: #6ea8ff;
+  --c-light: #d8eeff;
+  --c-dark: #030714;
+  --c-content: var(--text-secondary);
+  --c-action: var(--accent-ice, #8bdfff);
+  --glass-reflex-dark: 2;
+  --glass-reflex-light: 0.42;
+  --saturation: 165%;
+
   position: relative;
+  isolation: isolate;
+  z-index: 1;
   display: inline-flex;
   align-items: center;
+  border-radius: 99em;
+  background-color: color-mix(in srgb, var(--c-glass) 10%, rgba(7, 14, 34, 0.34));
+  -webkit-backdrop-filter: blur(10px) saturate(var(--saturation));
+  backdrop-filter: blur(10px) saturate(var(--saturation));
+  box-shadow:
+    inset 0 0 0 1px rgba(160, 205, 255, 0.24),
+    inset 1.8px 3px 0px -2px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 90%), transparent),
+    inset -2px -2px 0px -2px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 75%), transparent),
+    inset -3px -8px 1px -6px rgba(57, 217, 255, 0.16),
+    inset -0.3px -1px 4px 0px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 18%), transparent),
+    inset -1.5px 2.5px 0px -2px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 24%), transparent),
+    inset 0px 3px 4px -2px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 24%), transparent),
+    inset 2px -6.5px 1px -4px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 14%), transparent),
+    0px 8px 20px 0px rgba(2, 6, 23, 0.44),
+    0px 2px 8px 0px rgba(57, 217, 255, 0.08);
+  transition:
+    background-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+@supports (backdrop-filter: url(#a)) {
+  .root {
+    backdrop-filter: blur(10px) var(--select-filter) saturate(var(--saturation));
+  }
+}
+
+.root:hover {
+  background-color: color-mix(in srgb, var(--c-glass) 16%, rgba(12, 24, 56, 0.44));
+  box-shadow:
+    inset 0 0 0 1px rgba(160, 205, 255, 0.38),
+    inset 1.8px 3px 0px -2px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 100%), transparent),
+    inset -2px -2px 0px -2px color-mix(in srgb, var(--c-light) calc(var(--glass-reflex-light) * 85%), transparent),
+    inset -3px -8px 1px -6px rgba(57, 217, 255, 0.24),
+    inset -0.3px -1px 4px 0px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 18%), transparent),
+    inset -1.5px 2.5px 0px -2px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 24%), transparent),
+    inset 0px 3px 4px -2px color-mix(in srgb, var(--c-dark) calc(var(--glass-reflex-dark) * 24%), transparent),
+    0px 8px 22px 0px rgba(2, 6, 23, 0.5),
+    0px 2px 10px 0px rgba(57, 217, 255, 0.14);
+}
+
+.root:focus-within {
+  box-shadow:
+    inset 0 0 0 1px rgba(139, 223, 255, 0.55),
+    inset 1.8px 3px 0px -2px rgba(255, 255, 255, 0.65),
+    inset -2px -2px 0px -2px rgba(216, 238, 255, 0.45),
+    0px 0 0 2px rgba(77, 141, 255, 0.28),
+    0px 8px 20px 0px rgba(2, 6, 23, 0.46);
+}
+
+:global([data-theme='light']) .root {
+  --c-glass: #9cc4ff;
+  --c-light: #ffffff;
+  --c-dark: #14326e;
+  --c-content: #243b6b;
+  --c-action: #2f6fe8;
+  --glass-reflex-dark: 0.85;
+  --glass-reflex-light: 1;
+  background-color: color-mix(in srgb, var(--c-glass) 16%, rgba(238, 246, 255, 0.56));
+  box-shadow:
+    inset 0 0 0 1px rgba(47, 111, 232, 0.2),
+    inset 1.8px 3px 0px -2px rgba(255, 255, 255, 0.95),
+    inset -2px -2px 0px -2px rgba(255, 255, 255, 0.85),
+    inset -3px -8px 1px -6px rgba(130, 180, 255, 0.25),
+    inset 0px 3px 4px -2px rgba(20, 50, 110, 0.12),
+    0px 8px 20px 0px rgba(30, 60, 130, 0.12);
+}
+
+:global([data-theme='light']) .root:hover {
+  background-color: color-mix(in srgb, var(--c-glass) 22%, rgba(248, 252, 255, 0.74));
+  box-shadow:
+    inset 0 0 0 1px rgba(47, 111, 232, 0.34),
+    inset 1.8px 3px 0px -2px rgba(255, 255, 255, 1),
+    inset -2px -2px 0px -2px rgba(255, 255, 255, 0.92),
+    inset 0px 3px 4px -2px rgba(20, 50, 110, 0.12),
+    0px 8px 22px 0px rgba(30, 60, 130, 0.16);
+}
+
+.filter {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  pointer-events: none;
 }
 
 .select {
+  position: relative;
+  z-index: 1;
   appearance: none;
-  padding: 6px 32px 6px 14px;
+  padding: 7px 34px 7px 14px;
   font-size: 13px;
-  color: var(--text-secondary);
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-pill);
+  font-weight: 500;
+  color: var(--c-content);
+  background: transparent;
+  border: none;
+  border-radius: 99em;
+  outline: none;
   cursor: pointer;
-  transition: border-color var(--dur-fast) var(--ease);
+  transition: color 180ms ease;
 }
 
-.select:hover {
-  border-color: var(--border-strong);
+.root:hover .select {
+  color: var(--text-primary);
+}
+
+:global([data-theme='light']) .root:hover .select {
+  color: var(--c-action);
 }
 
 .select option {
@@ -28,14 +130,19 @@
 .chevron {
   position: absolute;
   right: 12px;
-  color: var(--text-muted);
+  z-index: 1;
+  color: var(--c-content);
   pointer-events: none;
+  transition: color 180ms ease;
+}
+
+.root:hover .chevron {
+  color: var(--c-action);
 }
 
 @media (max-width: 720px) {
   .select {
     min-height: 44px;
-    /* iOS Safari, 16 px altındaki alanlara odaklanınca sayfayı yakınlaştırır */
     font-size: 16px;
   }
 }

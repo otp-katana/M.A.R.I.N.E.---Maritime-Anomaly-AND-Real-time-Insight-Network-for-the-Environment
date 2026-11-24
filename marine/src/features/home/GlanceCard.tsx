@@ -1,5 +1,6 @@
 import { useCallback, useState } from 'react'
-import { CardHeader, GlassCard, SelectPill } from '@/components/ui'
+import { CardHeader, SelectPill } from '@/components/ui'
+import { LiquidGlassCard } from '@/components/ui/LiquidGlassCard'
 import { BarsIcon } from '@/components/ui/icons'
 import { fetchGlance } from '@/data/api'
 import type { RangeDays } from '@/data/types'
@@ -19,7 +20,7 @@ export function GlanceCard() {
   const { data, error } = useAsync(load)
 
   return (
-    <GlassCard>
+    <LiquidGlassCard padding="md">
       <CardHeader
         icon={<BarsIcon />}
         title="Ocean at a Glance"
@@ -44,6 +45,6 @@ export function GlanceCard() {
           </div>
         </div>
       </div>
-    </GlassCard>
+    </LiquidGlassCard>
   )
 }

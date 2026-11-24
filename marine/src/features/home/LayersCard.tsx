@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import { CardHeader, GlassCard } from '@/components/ui'
+import { CardHeader } from '@/components/ui'
+import { LiquidGlassCard } from '@/components/ui/LiquidGlassCard'
 import { LayersIcon } from '@/components/ui/icons'
 import { fetchLayers } from '@/data/api'
 import { useAsync } from '@/hooks/useAsync'
@@ -13,7 +14,7 @@ export function LayersCard() {
   const activeId = selected ?? data?.[0]?.id
 
   return (
-    <GlassCard padding="none">
+    <LiquidGlassCard padding="none">
       <div className={styles.inner}>
         <CardHeader
           icon={<LayersIcon />}
@@ -46,6 +47,6 @@ export function LayersCard() {
           )}
         </div>
       </div>
-    </GlassCard>
+    </LiquidGlassCard>
   )
 }

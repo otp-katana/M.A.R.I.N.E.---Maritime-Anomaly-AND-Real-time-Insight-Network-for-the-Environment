@@ -4,9 +4,7 @@
   color: var(--chart-line-b);
 }
 
-.svg {
-  display: block;
-}
+.svg { display: block; }
 
 .grid {
   stroke: var(--border);
@@ -50,10 +48,15 @@
   padding: 8px 12px;
   white-space: nowrap;
   pointer-events: none;
-  background: var(--surface-solid);
+  background:
+    linear-gradient(155deg, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+    rgba(13, 27, 58, 0.72);
   border: 1px solid var(--border-strong);
+  border-top-color: rgba(210, 235, 255, 0.45);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-card);
+  -webkit-backdrop-filter: blur(18px) saturate(var(--glass-saturate));
+  backdrop-filter: blur(18px) saturate(var(--glass-saturate));
   transform: translate(-50%, calc(-100% - 14px));
 }
 

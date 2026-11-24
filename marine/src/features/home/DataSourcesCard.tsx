@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { DatabaseIcon } from '@/components/layout/icons'
-import { CardHeader, GlassCard } from '@/components/ui'
+import { CardHeader } from '@/components/ui'
+import { LiquidGlassCard } from '@/components/ui/LiquidGlassCard'
 import { ArrowRightIcon } from '@/components/ui/icons'
 import { fetchSources } from '@/data/api'
 import { useAsync } from '@/hooks/useAsync'
@@ -12,7 +13,7 @@ export function DataSourcesCard() {
   const { data, error } = useAsync(fetchSources)
 
   return (
-    <GlassCard className={styles.card}>
+    <LiquidGlassCard padding="md" className={styles.card}>
       <CardHeader
         icon={<DatabaseIcon width={18} height={18} />}
         title="Data Sources"
@@ -35,6 +36,6 @@ export function DataSourcesCard() {
         {!error && !data && [0, 1, 2, 3].map((i) => <div key={i} className={styles.skeleton} />)}
         {data?.map((source) => <SourceRow key={source.id} source={source} />)}
       </div>
-    </GlassCard>
+    </LiquidGlassCard>
   )
 }

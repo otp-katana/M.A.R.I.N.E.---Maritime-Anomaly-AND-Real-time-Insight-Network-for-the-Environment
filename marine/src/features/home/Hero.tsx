@@ -1,4 +1,5 @@
 import { ButtonLink, LiveBadge } from '@/components/ui'
+import { LiquidGlassLayer } from '@/components/ui/LiquidGlassCard'
 import { ArrowRightIcon, SendIcon } from '@/components/ui/icons'
 import { DATA_MODE } from '@/config'
 import { mockStatus } from '@/data/mock/status'
@@ -9,11 +10,14 @@ export function Hero() {
   return (
     <section className={styles.hero} aria-labelledby="hero-title">
       <div className={styles.status}>
-        <LiveBadge />
-        <span className={styles.updated}>
-          {DATA_MODE === 'live' ? 'Last Updated: ' : 'Sample dataset · '}
-          <span className="num">{formatUtcStamp(mockStatus.lastUpdated)}</span>
-        </span>
+        <LiquidGlassLayer />
+        <div className={styles.statusContent}>
+          <LiveBadge />
+          <span className={styles.updated}>
+            {DATA_MODE === 'live' ? 'Last Updated: ' : 'Sample dataset · '}
+            <span className="num">{formatUtcStamp(mockStatus.lastUpdated)}</span>
+          </span>
+        </div>
       </div>
 
       <h1 id="hero-title" className={styles.title}>

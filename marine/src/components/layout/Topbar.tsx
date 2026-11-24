@@ -1,4 +1,5 @@
 import { useEffect, useRef, type RefObject } from 'react'
+import { LiquidGlassLayer } from '@/components/ui/LiquidGlassCard'
 import { SearchIcon, UserIcon } from './icons'
 import styles from './Topbar.module.css'
 
@@ -53,10 +54,14 @@ export function Topbar({ menuOpen, onMenuClick, menuButtonRef }: TopbarProps) {
         aria-controls="app-sidebar"
         onClick={onMenuClick}
       >
-        <MenuIcon />
+        <LiquidGlassLayer />
+        <span className={styles.buttonContent}>
+          <MenuIcon />
+        </span>
       </button>
 
       <form className={styles.search} role="search" onSubmit={(e) => e.preventDefault()}>
+        <LiquidGlassLayer />
         <SearchIcon width={18} height={18} className={styles.searchIcon} />
         <input
           ref={inputRef}
@@ -69,7 +74,10 @@ export function Topbar({ menuOpen, onMenuClick, menuButtonRef }: TopbarProps) {
       </form>
 
       <button type="button" className={styles.avatar} aria-label="Profil">
-        <UserIcon width={20} height={20} />
+        <LiquidGlassLayer />
+        <span className={styles.buttonContent}>
+          <UserIcon width={20} height={20} />
+        </span>
       </button>
     </header>
   )

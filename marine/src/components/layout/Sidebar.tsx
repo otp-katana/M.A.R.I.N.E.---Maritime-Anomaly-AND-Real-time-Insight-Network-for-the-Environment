@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import type { ComponentType, SVGProps } from 'react'
 import { NavLink } from 'react-router-dom'
 import { ThemeToggle } from '@/components/ui'
+import { LiquidGlassCard, LiquidGlassLayer } from '@/components/ui/LiquidGlassCard'
 import { cx } from '@/utils/cx'
 import { ChartIcon, DatabaseIcon, HomeIcon, InfoIcon, MapIcon } from './icons'
 import { LogoMark } from './LogoMark'
@@ -29,40 +30,50 @@ type SidebarProps = {
 export function Sidebar({ open }: SidebarProps) {
   const navRef = useRef<HTMLElement>(null)
 
-  // Çekmece açılınca odak ilk menü bağlantısına geçer
   useEffect(() => {
     if (open) navRef.current?.querySelector('a')?.focus({ preventScroll: true })
   }, [open])
 
   return (
     <aside id="app-sidebar" className={cx(styles.sidebar, open && styles.open)}>
-      <NavLink to="/" className={styles.brand} aria-label="M.A.R.I.N.E. ana sayfa">
-        <LogoMark />
-        <span className={styles.wordmark}>M.A.R.I.N.E.</span>
-      </NavLink>
+      <LiquidGlassLayer />
 
-      <nav ref={navRef} className={styles.nav} aria-label="Ana menü">
-        {NAV.map(({ to, label, icon: Icon, end }) => (
-          <NavLink
-            key={to}
-            to={to}
-            end={end}
-            title={label}
-            className={({ isActive }) => cx(styles.link, isActive && styles.active)}
-          >
-            <Icon />
-            <span className={styles.label}>{label}</span>
-          </NavLink>
-        ))}
-      </nav>
+      <div className={styles.inner}>
+        <NavLink to="/" className={styles.brand} aria-label="M.A.R.I.N.E. ana sayfa">
+          <LogoMark />
+          <span className={styles.wordmark}>M.A.R.I.N.E.</span>
+        </NavLink>
 
-      <div className={styles.footer}>
-        <div className={styles.promo}>
-          <div className={styles.orb} aria-hidden="true" />
-          <p className={styles.promoTitle}>Ocean. Observed.</p>
-          <p className={styles.promoText}>A smarter planet.</p>
+        <nav ref={navRef} className={styles.nav} aria-label="Ana menü">
+          {NAV.map(({ to, label, icon: Icon, end }) => (
+            <NavLink
+              key={to}
+              to={to}
+              end={end}
+              title={label}
+              className={({ isActive }) => cx(styles.link, isActive && styles.active)}
+            >
+              {({ isActive }) => (
+                <>
+                  {isActive && <LiquidGlassLayer />}
+                  <span className={styles.linkContent}>
+                    <Icon />
+                    <span className={styles.label}>{label}</span>
+                  </span>
+                </>
+              )}
+            </NavLink>
+          ))}
+        </nav>
+
+        <div className={styles.footer}>
+          <LiquidGlassCard className={styles.promo} contentClassName={styles.promoContent}>
+            <div className={styles.orb} aria-hidden="true" />
+            <p className={styles.promoTitle}>Ocean. Uniled.</p>
+            <p className={styles.promoText}>Global marine observatory & live analytics.</p>
+          </LiquidGlassCard>
+          <ThemeToggle className={styles.toggle} />
         </div>
-        <ThemeToggle className={styles.toggle} />
       </div>
     </aside>
   )

@@ -5,25 +5,25 @@
   color-scheme: dark;
 
   /* Zemin (Deep Space / Midnight Navy) */
-  --bg-base: #080d1b;
-  --bg-glow-a: rgba(57, 120, 255, 0.22);
-  --bg-glow-b: rgba(146, 117, 255, 0.16);
-  --bg-glow-c: rgba(57, 217, 255, 0.1);
+  --bg-base: #060a17;
+  --bg-glow-a: rgba(57, 130, 255, 0.28);
+  --bg-glow-b: rgba(146, 117, 255, 0.24);
+  --bg-glow-c: rgba(57, 217, 255, 0.16);
 
-  /* Cam yüzeyler */
-  --surface: rgba(19, 38, 72, 0.42);
-  --surface-hover: rgba(27, 55, 96, 0.55);
-  --surface-solid: #14294a;
-  --sidebar-bg: rgba(11, 23, 48, 0.5);
-  --border: rgba(145, 190, 255, 0.18);
-  --border-strong: rgba(145, 190, 255, 0.36);
-  --border-hover: rgba(57, 217, 255, 0.4);
-  --inner-highlight: rgba(255, 255, 255, 0.08);
+  /* Cam yüzeyler (Real Glassmorphism - referans görsele uyumlu) */
+  --surface: rgba(16, 30, 62, 0.36);
+  --surface-hover: rgba(26, 48, 94, 0.52);
+  --surface-solid: #112242;
+  --sidebar-bg: rgba(9, 17, 38, 0.44);
+  --border: rgba(165, 208, 255, 0.14);
+  --border-strong: rgba(165, 208, 255, 0.34);
+  --border-hover: rgba(79, 224, 238, 0.48);
+  --inner-highlight: rgba(255, 255, 255, 0.18);
 
   /* Metin */
-  --text-primary: #edf5ff;
-  --text-secondary: #91a8c8;
-  --text-muted: #6d86aa;
+  --text-primary: #f2f7ff;
+  --text-secondary: #9bb3d6;
+  --text-muted: #7089b0;
 
   /* Vurgu renkleri */
   --accent-cyan: #39d9ff;
@@ -35,15 +35,15 @@
   --danger: #ff657a;
   --accent-soft: rgba(77, 141, 255, 0.16);
   --grad-accent: linear-gradient(135deg, #8bdfff 0%, #5aa2ff 55%, #9275ff 100%);
-  --grad-title: linear-gradient(95deg, #ffffff 0%, #d5e6ff 48%, #e8c8ff 100%);
+  --grad-title: linear-gradient(95deg, #ffffff 0%, #dbeaff 48%, #ebd0ff 100%);
   --grad-tagline: linear-gradient(95deg, #d7e8ff 0%, #bcc9ff 55%, #c9b8ff 100%);
   --text-hero-body: #c5d0f0;
 
   /* Dolu vurgu yüzeyleri (menü, buton, sekme) */
-  --grad-nav-active: linear-gradient(135deg, #3d6cf2 0%, #5b8cff 100%);
-  --glow-nav-active: 0 6px 22px rgba(61, 108, 242, 0.45);
+  --grad-nav-active: linear-gradient(135deg, rgba(61, 108, 242, 0.78) 0%, rgba(91, 140, 255, 0.65) 100%);
+  --glow-nav-active: 0 8px 24px rgba(61, 108, 242, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.32);
   --grad-primary: linear-gradient(100deg, #7f8cff 0%, #5fb0ff 55%, #4fe0ee 100%);
-  --glow-primary: 0 8px 28px rgba(95, 150, 255, 0.4);
+  --glow-primary: 0 8px 28px rgba(95, 150, 255, 0.42);
   --grad-tab: linear-gradient(135deg, #5b8cff 0%, #8fc8ff 100%);
 
   /* İkon daireleri ve grafik */
@@ -54,35 +54,42 @@
   --chart-line-a: #8f9bff;
   --chart-line-b: #4fe0ee;
 
-  /* Gölge ve efektler */
-  --shadow-card: 0 12px 35px rgba(0, 0, 0, 0.18),
-    inset 0 1px 0 var(--inner-highlight);
-  --glow-cyan: 0 0 24px rgba(57, 217, 255, 0.35);
-  --blur: 18px;
-    /* Cam yüzey (GlassCard) */
-  --glass-top: rgba(32, 58, 108, 0.52);
-  --glass-bottom: rgba(13, 27, 58, 0.34);
-  --glass-edge-a: rgba(160, 205, 255, 0.4);
-  --glass-edge-b: rgba(146, 117, 255, 0.24);
-  --glass-saturate: 150%;
+  /* Gölge ve optik cam efektleri */
+  --shadow-card:
+    0 20px 48px rgba(2, 6, 20, 0.52),
+    0 4px 16px rgba(10, 25, 65, 0.35),
+    inset 0 1px 0 var(--inner-highlight),
+    inset 0 0 24px rgba(130, 185, 255, 0.04);
+  --glow-cyan: 0 0 28px rgba(57, 217, 255, 0.32);
+  --blur: 24px;
+  --blur-strong: 30px;
+
+  /* Cam yüzey (GlassCard) - çok katmanlı ışık kırılması */
+  --glass-top: rgba(34, 62, 118, 0.38);
+  --glass-bottom: rgba(11, 22, 48, 0.28);
+  --glass-sheen: rgba(255, 255, 255, 0.09);
+  --glass-edge-a: rgba(210, 235, 255, 0.58);
+  --glass-edge-b: rgba(162, 132, 255, 0.34);
+  --glass-saturate: 175%;
+  --glass-warm: rgba(146, 117, 255, 0.11);
   --glass-warm-strong: rgba(255, 150, 120, 0.16);
-  --glass-highlight: rgba(255, 255, 255, 0.9);
-  --glass-shadow: rgba(30, 60, 130, 0.16);
+  --glass-highlight: rgba(255, 255, 255, 0.92);
+  --glass-shadow: rgba(30, 60, 130, 0.22);
 
   /* Arka plan dokusu (BackgroundArt) */
-  --art-aurora-a: rgba(52, 110, 255, 0.28);
-  --art-aurora-b: rgba(146, 117, 255, 0.24);
-  --art-aurora-c: rgba(57, 217, 255, 0.14);
-  --art-aurora-d: rgba(90, 60, 220, 0.16);
+  --art-aurora-a: rgba(52, 120, 255, 0.36);
+  --art-aurora-b: rgba(146, 117, 255, 0.32);
+  --art-aurora-c: rgba(57, 217, 255, 0.2);
+  --art-aurora-d: rgba(90, 60, 220, 0.22);
   --art-wave-a: #5aa2ff;
   --art-wave-b: #9275ff;
-  --art-wave-opacity: 0.5;
+  --art-wave-opacity: 0.58;
 
   /* Tipografi */
   --font-sans: 'Inter Variable', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-display: 'Space Grotesk Variable', var(--font-sans);
 
-  /* Hero tipografisi (font laboratuvarı sonucu) */
+  /* Hero tipografisi */
   --hero-title-font: var(--font-display);
   --hero-title-weight: 700;
   --hero-title-size: clamp(40px, 4.4vw, 72px);
@@ -105,8 +112,8 @@
   /* Köşe yuvarlaklığı */
   --radius-sm: 10px;
   --radius-md: 16px;
-  --radius-lg: 20px;
-  --radius-xl: 24px;
+  --radius-lg: 22px;
+  --radius-xl: 26px;
   --radius-pill: 999px;
 
   /* Yerleşim (FRONTEND.md) */
@@ -131,19 +138,19 @@
 :root[data-theme='light'] {
   color-scheme: light;
 
-  --bg-base: #e9f0fb;
-  --bg-glow-a: rgba(77, 141, 255, 0.28);
-  --bg-glow-b: rgba(146, 117, 255, 0.16);
-  --bg-glow-c: rgba(57, 217, 255, 0.18);
+  --bg-base: #e6eefb;
+  --bg-glow-a: rgba(77, 141, 255, 0.32);
+  --bg-glow-b: rgba(146, 117, 255, 0.22);
+  --bg-glow-c: rgba(57, 217, 255, 0.22);
 
-  --surface: rgba(255, 255, 255, 0.68);
-  --surface-hover: rgba(255, 255, 255, 0.85);
+  --surface: rgba(255, 255, 255, 0.54);
+  --surface-hover: rgba(255, 255, 255, 0.76);
   --surface-solid: #ffffff;
-  --sidebar-bg: rgba(255, 255, 255, 0.72);
+  --sidebar-bg: rgba(255, 255, 255, 0.58);
   --border: rgba(40, 80, 160, 0.14);
   --border-strong: rgba(40, 80, 160, 0.3);
   --border-hover: rgba(10, 167, 214, 0.5);
-  --inner-highlight: rgba(255, 255, 255, 0.8);
+  --inner-highlight: rgba(255, 255, 255, 0.92);
 
   --text-primary: #0c1a3a;
   --text-secondary: #4a5c85;
@@ -162,32 +169,34 @@
   --grad-tagline: linear-gradient(95deg, #34497d 0%, #5a4be0 100%);
   --text-hero-body: #4a5c85;
 
-  --shadow-card: 0 8px 30px rgba(30, 60, 130, 0.12),
+  --shadow-card:
+    0 14px 36px rgba(30, 60, 130, 0.14),
     inset 0 1px 0 var(--inner-highlight);
-  --glow-cyan: 0 0 20px rgba(10, 167, 214, 0.25);
+  --glow-cyan: 0 0 22px rgba(10, 167, 214, 0.28);
 
   --nav-icon: #4a6aa6;
   --nav-active-text: #0c1a3a;
 
   /* Cam yüzey */
-  --glass-top: rgba(255, 255, 255, 0.8);
-  --glass-bottom: rgba(255, 255, 255, 0.56);
-  --glass-edge-a: rgba(255, 255, 255, 0.9);
-  --glass-edge-b: rgba(107, 75, 224, 0.2);
-  --glass-saturate: 140%;
+  --glass-top: rgba(255, 255, 255, 0.72);
+  --glass-bottom: rgba(255, 255, 255, 0.44);
+  --glass-sheen: rgba(255, 255, 255, 0.45);
+  --glass-edge-a: rgba(255, 255, 255, 0.95);
+  --glass-edge-b: rgba(107, 75, 224, 0.24);
+  --glass-saturate: 165%;
   --glass-warm: rgba(255, 150, 120, 0.1);
   --glass-warm-strong: rgba(255, 150, 120, 0.16);
-  --glass-highlight: rgba(255, 255, 255, 0.9);
+  --glass-highlight: rgba(255, 255, 255, 0.95);
   --glass-shadow: rgba(30, 60, 130, 0.16);
 
   /* Arka plan dokusu */
-  --art-aurora-a: rgba(77, 141, 255, 0.3);
-  --art-aurora-b: rgba(146, 117, 255, 0.2);
-  --art-aurora-c: rgba(57, 217, 255, 0.2);
-  --art-aurora-d: rgba(107, 75, 224, 0.12);
+  --art-aurora-a: rgba(77, 141, 255, 0.34);
+  --art-aurora-b: rgba(146, 117, 255, 0.24);
+  --art-aurora-c: rgba(57, 217, 255, 0.24);
+  --art-aurora-d: rgba(107, 75, 224, 0.14);
   --art-wave-a: #2f6fe8;
   --art-wave-b: #6b4be0;
-  --art-wave-opacity: 0.3;
+  --art-wave-opacity: 0.35;
 
   /* Grafik */
   --chart-fill: #3f6fe8;

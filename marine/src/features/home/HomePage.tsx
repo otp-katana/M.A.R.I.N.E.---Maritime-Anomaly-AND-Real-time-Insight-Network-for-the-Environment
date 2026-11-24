@@ -1,4 +1,3 @@
-import { Suspense, lazy } from 'react'
 import { BrandCard } from './BrandCard'
 import { ConditionsCard } from './ConditionsCard'
 import { DataSourcesCard } from './DataSourcesCard'
@@ -9,17 +8,11 @@ import { KpiRail } from './KpiRail'
 import { LayersCard } from './LayersCard'
 import styles from './HomePage.module.css'
 
-const Globe = lazy(() => import('./Globe').then((m) => ({ default: m.Globe })))
-
 export function HomePage() {
   return (
     <>
       <section className={styles.stage}>
-        <div className={styles.globeSlot}>
-          <Suspense fallback={null}>
-            <Globe />
-          </Suspense>
-        </div>
+        {/* Dönen 3D küre slotu arka plan görseliyle değiştirildiği için kaldırıldı */}
         <Hero />
         <KpiRail />
       </section>

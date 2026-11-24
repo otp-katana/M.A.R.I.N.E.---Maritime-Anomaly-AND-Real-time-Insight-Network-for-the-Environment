@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
+import { LiquidGlassLayer } from '@/components/ui/LiquidGlassCard'
 import { cx } from '@/utils/cx'
 import styles from './ButtonLink.module.css'
 
@@ -22,11 +23,16 @@ export function ButtonLink({
   className,
   children,
 }: Props) {
+  const isGhost = variant === 'ghost'
+
   return (
     <Link to={to} className={cx(styles.btn, styles[variant], size === 'sm' && styles.sm, className)}>
-      {icon}
-      {children}
-      {trailingIcon}
+      {isGhost && <LiquidGlassLayer />}
+      <span className={styles.content}>
+        {icon}
+        {children}
+        {trailingIcon}
+      </span>
     </Link>
   )
 }

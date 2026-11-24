@@ -1,5 +1,6 @@
 import type { ComponentType, SVGProps } from 'react'
-import { GlassCard, Sparkline } from '@/components/ui'
+import { Sparkline } from '@/components/ui'
+import { LiquidGlassCard } from '@/components/ui/LiquidGlassCard'
 import { DropIcon, ThermometerIcon, WavesIcon } from '@/components/ui/icons'
 import { CADENCE_LABEL } from '@/data/labels'
 import type { KpiIcon, KpiMetric } from '@/data/types'
@@ -26,7 +27,7 @@ export function KpiCard({ metric }: { metric: KpiMetric }) {
   const Icon = ICONS[metric.icon]
 
   return (
-    <GlassCard padding="compact" className={styles.card}>
+    <LiquidGlassCard className={styles.card}>
       <div className={styles.top}>
         <span className={styles.icon}>
           <Icon />
@@ -56,6 +57,6 @@ export function KpiCard({ metric }: { metric: KpiMetric }) {
         height={24}
         className={metric.sentiment === 'bad' ? styles.warn : styles.calm}
       />
-    </GlassCard>
+    </LiquidGlassCard>
   )
 }
