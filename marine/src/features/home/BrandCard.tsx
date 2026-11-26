@@ -1,3 +1,4 @@
+import bgBrandCard from '@/assets/bg-brand_card.jpg'
 import { LiquidGlassCard } from '@/components/ui/LiquidGlassCard'
 import styles from './BrandCard.module.css'
 
@@ -10,9 +11,7 @@ export function BrandCard() {
       lightOrigin="brand"
     >
       <div className={styles.backdrop} aria-hidden="true">
-        <div className={styles.skyGlow} />
-        <div className={styles.oceanSurface} />
-        <div className={styles.sunReflection} />
+        <img src={bgBrandCard} alt="" className={styles.backdropImage} />
       </div>
 
       <div className={styles.content}>
