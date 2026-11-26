@@ -10,6 +10,36 @@
   min-width: 0;
 }
 
+.main main {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition:
+    opacity 380ms cubic-bezier(0.28, 0.82, 0.2, 1),
+    transform 380ms cubic-bezier(0.28, 0.82, 0.2, 1);
+}
+
+:global([data-nav-transition='leaving']) .main main {
+  opacity: 0;
+  transform: translate3d(0, 3px, 0);
+  transition:
+    opacity 240ms cubic-bezier(0.4, 0, 1, 1),
+    transform 240ms cubic-bezier(0.4, 0, 1, 1);
+}
+
+:global([data-nav-transition='entering']) .main main {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition:
+    opacity 440ms cubic-bezier(0.28, 0.82, 0.2, 1),
+    transform 440ms cubic-bezier(0.28, 0.82, 0.2, 1);
+}
+
+/* Home sayfasında veriler yerleşirken kayma sıçramasını önler */
+:global([data-nav-target='home'][data-nav-transition='leaving']) .main main,
+:global([data-nav-target='home'][data-nav-transition='entering']) .main main {
+  transform: none;
+}
+
 .frame {
   position: relative;
   max-width: 1680px;
@@ -63,5 +93,9 @@
 @media (prefers-reduced-motion: reduce) {
   .scrim {
     animation: none;
+  }
+
+  .main main {
+    transition: none !important;
   }
 }

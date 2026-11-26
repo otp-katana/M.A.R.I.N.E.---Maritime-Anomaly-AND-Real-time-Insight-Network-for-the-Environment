@@ -20,7 +20,7 @@ export function GlanceCard() {
   const { data, error } = useAsync(load)
 
   return (
-    <LiquidGlassCard padding="md">
+    <LiquidGlassCard padding="md" lightOrigin="glance">
       <CardHeader
         icon={<BarsIcon />}
         title="Ocean at a Glance"

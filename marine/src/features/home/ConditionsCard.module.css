@@ -1,3 +1,7 @@
+.card {
+  overflow: hidden;
+}
+
 .body {
   margin-top: var(--space-3);
   overflow: hidden;
@@ -5,60 +9,25 @@
 
 .chartStage {
   opacity: 1;
-  transform: translate3d(0, 0, 0) scale(1);
-  filter: blur(0px);
-  will-change: opacity, transform, filter;
-  transition:
-    opacity 210ms cubic-bezier(0.22, 1, 0.36, 1),
-    transform 210ms cubic-bezier(0.22, 1, 0.36, 1),
-    filter 210ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity;
+  transition: opacity 260ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .exiting {
   opacity: 0;
-  transform: translate3d(-10px, 0, 0) scale(0.992);
-  filter: blur(2px);
-  transition:
-    opacity 180ms cubic-bezier(0.4, 0, 1, 1),
-    transform 180ms cubic-bezier(0.4, 0, 1, 1),
-    filter 180ms cubic-bezier(0.4, 0, 1, 1);
-}
-
-.exiting.reverse {
-  transform: translate3d(10px, 0, 0) scale(0.992);
+  transition: opacity 110ms cubic-bezier(0.4, 0, 1, 1);
 }
 
 .entering {
-  animation: chartRevealNext 210ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: chartFadeIn 260ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
-.entering.reverse {
-  animation: chartRevealPrev 210ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-
-@keyframes chartRevealNext {
+@keyframes chartFadeIn {
   from {
     opacity: 0;
-    transform: translate3d(10px, 0, 0) scale(0.992);
-    filter: blur(2px);
   }
   to {
     opacity: 1;
-    transform: translate3d(0, 0, 0) scale(1);
-    filter: blur(0px);
-  }
-}
-
-@keyframes chartRevealPrev {
-  from {
-    opacity: 0;
-    transform: translate3d(-10px, 0, 0) scale(0.992);
-    filter: blur(2px);
-  }
-  to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0) scale(1);
-    filter: blur(0px);
   }
 }
 
@@ -79,7 +48,5 @@
   .entering {
     transition: none !important;
     animation: none !important;
-    transform: none !important;
-    filter: none !important;
   }
 }

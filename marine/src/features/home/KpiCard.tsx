@@ -1,6 +1,6 @@
 import type { ComponentType, SVGProps } from 'react'
 import { Sparkline } from '@/components/ui'
-import { LiquidGlassCard } from '@/components/ui/LiquidGlassCard'
+import { LiquidGlassCard, type LiquidGlassLightOrigin } from '@/components/ui/LiquidGlassCard'
 import { DropIcon, ThermometerIcon, WavesIcon } from '@/components/ui/icons'
 import { CADENCE_LABEL } from '@/data/labels'
 import type { KpiIcon, KpiMetric } from '@/data/types'
@@ -11,6 +11,12 @@ const ICONS: Record<KpiIcon, ComponentType<SVGProps<SVGSVGElement>>> = {
   thermometer: ThermometerIcon,
   drop: DropIcon,
   waves: WavesIcon,
+}
+
+const KPI_LIGHT_ORIGIN: Record<KpiIcon, LiquidGlassLightOrigin> = {
+  thermometer: 'kpi-temp',
+  drop: 'kpi-ph',
+  waves: 'kpi-sea',
 }
 
 function formatValue(m: KpiMetric): string {
@@ -27,7 +33,7 @@ export function KpiCard({ metric }: { metric: KpiMetric }) {
   const Icon = ICONS[metric.icon]
 
   return (
-    <LiquidGlassCard className={styles.card}>
+    <LiquidGlassCard className={styles.card} lightOrigin={KPI_LIGHT_ORIGIN[metric.icon]}>
       <div className={styles.top}>
         <span className={styles.icon}>
           <Icon />

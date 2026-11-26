@@ -27,6 +27,11 @@
   margin-top: var(--section-gap);
 }
 
+/* Glance, Conditions ve Data Sources kartlarını sayfa akışını bozmadan aşağı taşır */
+.panels > * {
+  transform: translateY(7px);
+}
+
 .panelsLow {
   display: grid;
   grid-template-columns:
@@ -38,11 +43,20 @@
   margin-top: var(--section-gap);
 }
 
+/* Key Insights, Ocean Layers ve M.A.R.I.N.E. kartlarını sayfa akışını bozmadan aşağı taşır */
+.panelsLow > * {
+  transform: translateY(12px);
+}
+
 /* Orta genişlik: iki sütun. Data Sources ve Key Insights tam genişlikte */
 @media (max-width: 1439px) {
   .panels {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-auto-rows: minmax(294px, auto);
+  }
+
+  .panels > * {
+    transform: none;
   }
 
   .panels > :last-child {
@@ -52,6 +66,10 @@
   .panelsLow {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-auto-rows: minmax(155px, auto);
+  }
+
+  .panelsLow > * {
+    transform: none;
   }
 
   .panelsLow > :first-child {

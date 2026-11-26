@@ -22,40 +22,22 @@
     box-shadow 0.3s ease;
 }
 
-:global([data-theme='light']) .liquidCard {
-  background: rgba(255, 255, 255, 0.52);
-  border: 1px solid rgba(40, 80, 160, 0.18);
-  border-top-color: rgba(255, 255, 255, 0.95);
-  box-shadow:
-    0 14px 36px rgba(30, 60, 130, 0.12),
-    inset 0 1px 1px rgba(255, 255, 255, 0.92),
-    inset 0 -14px 24px rgba(47, 111, 232, 0.05);
-}
-
 .shaderCanvas {
   position: absolute;
   inset: 0;
-
   display: block;
-
   width: 100%;
   height: 100%;
-
   pointer-events: none;
-
   z-index: 0;
 }
 
 .liquidCard::before {
   content: '';
-
   position: absolute;
   inset: 0;
-
   z-index: 2;
-
   border-radius: inherit;
-
   pointer-events: none;
 
   background: linear-gradient(
@@ -87,39 +69,19 @@
 .content {
   position: relative;
   z-index: 3;
-
   box-sizing: border-box;
-
   height: 100%;
 }
 
-.pad_default {
-  padding: 16px;
-}
-
-.pad_none {
-  padding: 0;
-}
-
-.pad_sm {
-  padding: var(--space-3);
-}
-
-.pad_md {
-  padding: var(--space-5);
-}
-
-.pad_lg {
-  padding: var(--space-6);
-}
-
-.pad_compact {
-  padding: 14px 16px;
-}
+.pad_default { padding: 16px; }
+.pad_none    { padding: 0; }
+.pad_sm      { padding: var(--space-3); }
+.pad_md      { padding: var(--space-5); }
+.pad_lg      { padding: var(--space-6); }
+.pad_compact { padding: 14px 16px; }
 
 .liquidCard:hover {
   border-color: rgba(57, 217, 255, 0.55);
-
   box-shadow:
     0 20px 48px rgba(2, 6, 23, 0.62),
     0 0 24px rgba(57, 217, 255, 0.08),
@@ -149,17 +111,381 @@
 }
 
 @media (max-width: 480px) {
-  .pad_md {
-    padding: var(--space-4);
-  }
-
-  .pad_lg {
-    padding: var(--space-5);
-  }
+  .pad_md { padding: var(--space-4); }
+  .pad_lg { padding: var(--space-5); }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .liquidCard {
     transition: none;
   }
+}
+
+/* ==========================================================================
+   Bölgesel Dış Işık Varyantları (Dark & Light Tema)
+   ========================================================================== */
+
+.lightRightBottom,
+.lightGlance,
+.lightConditions,
+.lightSources,
+.lightInsights,
+.lightBrand,
+.lightKpiTemp,
+.lightKpiPh,
+.lightKpiSea {
+  border: 1px solid rgba(160, 205, 255, 0.16);
+  border-top-color: rgba(160, 205, 255, 0.16);
+  box-shadow:
+    0 16px 40px rgba(2, 6, 23, 0.54),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+:global([data-theme='light']) .lightRightBottom,
+:global([data-theme='light']) .lightGlance,
+:global([data-theme='light']) .lightConditions,
+:global([data-theme='light']) .lightSources,
+:global([data-theme='light']) .lightInsights,
+:global([data-theme='light']) .lightBrand,
+:global([data-theme='light']) .lightKpiTemp,
+:global([data-theme='light']) .lightKpiPh,
+:global([data-theme='light']) .lightKpiSea {
+  border: 1px solid rgba(56, 120, 210, 0.18);
+  border-top-color: rgba(56, 120, 210, 0.18);
+  box-shadow:
+    0 14px 36px rgba(20, 48, 110, 0.11),
+    inset 0 1px 0 rgba(255, 255, 255, 0.65);
+}
+
+.lightRightBottom::after,
+.lightGlance::after,
+.lightConditions::after,
+.lightSources::after,
+.lightInsights::after,
+.lightBrand::after,
+.lightKpiTemp::after,
+.lightKpiPh::after,
+.lightKpiSea::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: inherit;
+  padding: 1px;
+  pointer-events: none;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+:global([data-theme='light']) .lightRightBottom::after,
+:global([data-theme='light']) .lightGlance::after,
+:global([data-theme='light']) .lightConditions::after,
+:global([data-theme='light']) .lightSources::after,
+:global([data-theme='light']) .lightInsights::after,
+:global([data-theme='light']) .lightBrand::after,
+:global([data-theme='light']) .lightKpiTemp::after,
+:global([data-theme='light']) .lightKpiPh::after,
+:global([data-theme='light']) .lightKpiSea::after {
+  padding: 1.5px;
+}
+
+/* 0. OCEAN LAYERS (right-bottom) */
+.lightRightBottom::before {
+  background:
+    radial-gradient(20% 18% at 28% 0%, rgba(195, 238, 255, 0.07) 0%, transparent 75%),
+    radial-gradient(28% 54% at 33% 100%, rgba(195, 238, 255, 0.15) 0%, rgba(139, 223, 255, 0.04) 50%, transparent 80%),
+    radial-gradient(36% 84% at 100% 80%, rgba(225, 247, 255, 0.25) 0%, rgba(139, 223, 255, 0.09) 46%, transparent 78%);
+  box-shadow: none;
+}
+
+:global([data-theme='light']) .lightRightBottom::before {
+  background:
+    radial-gradient(22% 20% at 28% 0%, rgba(56, 189, 248, 0.1) 0%, transparent 78%),
+    radial-gradient(30% 56% at 33% 100%, rgba(56, 189, 248, 0.13) 0%, rgba(125, 211, 252, 0.04) 52%, transparent 82%),
+    radial-gradient(38% 86% at 100% 80%, rgba(56, 189, 248, 0.18) 0%, rgba(125, 211, 252, 0.06) 48%, transparent 80%);
+  box-shadow: none;
+}
+
+.lightRightBottom::after {
+  background:
+    radial-gradient(19% 8px at 28% 0%, rgba(240, 250, 255, 0.72) 0%, rgba(165, 228, 255, 0.34) 48%, transparent 84%),
+    radial-gradient(24% 14px at 33% 100%, rgba(245, 252, 255, 0.8) 0%, rgba(165, 228, 255, 0.4) 48%, transparent 84%),
+    radial-gradient(68px 78% at 100% 82%, rgba(255, 255, 255, 0.96) 0%, rgba(185, 236, 255, 0.58) 46%, transparent 80%);
+}
+
+:global([data-theme='light']) .lightRightBottom::after {
+  background:
+    radial-gradient(20% 10px at 28% 0%, rgba(224, 244, 255, 0.92) 0%, rgba(56, 189, 248, 0.48) 50%, transparent 85%),
+    radial-gradient(25% 15px at 33% 100%, rgba(224, 244, 255, 0.95) 0%, rgba(56, 189, 248, 0.54) 50%, transparent 85%),
+    radial-gradient(70px 78% at 100% 82%, rgba(235, 248, 255, 0.98) 0%, rgba(56, 189, 248, 0.62) 48%, transparent 84%);
+}
+
+/* 1. OCEAN AT A GLANCE */
+.lightGlance::before {
+  background:
+    radial-gradient(24% 46% at 0% 14%, rgba(215, 244, 255, 0.2) 0%, transparent 76%),
+    radial-gradient(26% 44% at 4% 96%, rgba(205, 240, 255, 0.18) 0%, transparent 76%),
+    radial-gradient(18% 36% at 36% 100%, rgba(195, 238, 255, 0.12) 0%, transparent 78%),
+    radial-gradient(26% 44% at 96% 6%, rgba(215, 244, 255, 0.2) 0%, transparent 76%),
+    radial-gradient(16% 24% at 100% 100%, rgba(205, 240, 255, 0.15) 0%, transparent 76%);
+  box-shadow: none;
+}
+
+:global([data-theme='light']) .lightGlance::before {
+  background:
+    radial-gradient(26% 48% at 0% 14%, rgba(56, 189, 248, 0.15) 0%, rgba(125, 211, 252, 0.05) 50%, transparent 78%),
+    radial-gradient(28% 46% at 4% 96%, rgba(56, 189, 248, 0.14) 0%, rgba(125, 211, 252, 0.05) 50%, transparent 78%),
+    radial-gradient(20% 38% at 36% 100%, rgba(56, 189, 248, 0.1) 0%, transparent 80%),
+    radial-gradient(28% 46% at 96% 6%, rgba(56, 189, 248, 0.15) 0%, rgba(125, 211, 252, 0.05) 50%, transparent 78%),
+    radial-gradient(18% 26% at 100% 100%, rgba(56, 189, 248, 0.13) 0%, transparent 78%);
+  box-shadow: none;
+}
+
+.lightGlance::after {
+  background:
+    radial-gradient(64px 44% at 0% 14%, rgba(255, 255, 255, 0.94) 0%, rgba(180, 234, 255, 0.52) 46%, transparent 80%),
+    radial-gradient(24% 44% at 4% 96%, rgba(255, 255, 255, 0.92) 0%, rgba(180, 234, 255, 0.5) 46%, transparent 80%),
+    radial-gradient(16% 12px at 36% 100%, rgba(245, 252, 255, 0.78) 0%, rgba(165, 228, 255, 0.38) 48%, transparent 84%),
+    radial-gradient(24% 42% at 96% 6%, rgba(255, 255, 255, 0.94) 0%, rgba(180, 234, 255, 0.52) 46%, transparent 80%),
+    radial-gradient(46px 46px at 100% 100%, rgba(255, 255, 255, 0.9) 0%, rgba(180, 234, 255, 0.46) 48%, transparent 82%);
+}
+
+:global([data-theme='light']) .lightGlance::after {
+  background:
+    radial-gradient(66px 44% at 0% 14%, rgba(235, 248, 255, 0.98) 0%, rgba(56, 189, 248, 0.58) 48%, transparent 84%),
+    radial-gradient(24% 44% at 4% 96%, rgba(235, 248, 255, 0.96) 0%, rgba(56, 189, 248, 0.56) 48%, transparent 84%),
+    radial-gradient(17% 13px at 36% 100%, rgba(224, 244, 255, 0.92) 0%, rgba(56, 189, 248, 0.48) 50%, transparent 85%),
+    radial-gradient(24% 42% at 96% 6%, rgba(235, 248, 255, 0.98) 0%, rgba(56, 189, 248, 0.58) 48%, transparent 84%),
+    radial-gradient(48px 48px at 100% 100%, rgba(235, 248, 255, 0.95) 0%, rgba(56, 189, 248, 0.54) 48%, transparent 84%);
+}
+
+/* 2. OCEAN CONDITIONS */
+.lightConditions::before {
+  background:
+    radial-gradient(18% 40% at 0% 34%, rgba(205, 240, 255, 0.16) 0%, transparent 76%),
+    radial-gradient(18% 16% at 66% 0%, rgba(195, 238, 255, 0.07) 0%, transparent 75%),
+    radial-gradient(18% 30% at 100% 22%, rgba(205, 240, 255, 0.16) 0%, transparent 76%),
+    radial-gradient(18% 38% at 100% 76%, rgba(205, 240, 255, 0.16) 0%, transparent 76%),
+    radial-gradient(18% 38% at 30% 100%, rgba(195, 238, 255, 0.12) 0%, transparent 78%);
+  box-shadow: none;
+}
+
+:global([data-theme='light']) .lightConditions::before {
+  background:
+    radial-gradient(20% 42% at 0% 34%, rgba(56, 189, 248, 0.13) 0%, transparent 78%),
+    radial-gradient(20% 18% at 66% 0%, rgba(56, 189, 248, 0.09) 0%, transparent 80%),
+    radial-gradient(20% 32% at 100% 22%, rgba(56, 189, 248, 0.13) 0%, transparent 78%),
+    radial-gradient(20% 40% at 100% 76%, rgba(56, 189, 248, 0.13) 0%, transparent 78%),
+    radial-gradient(20% 40% at 30% 100%, rgba(56, 189, 248, 0.1) 0%, transparent 80%);
+  box-shadow: none;
+}
+
+.lightConditions::after {
+  background:
+    radial-gradient(14px 34% at 0% 34%, rgba(255, 255, 255, 0.9) 0%, rgba(180, 234, 255, 0.48) 46%, transparent 82%),
+    radial-gradient(18% 8px at 66% 0%, rgba(240, 250, 255, 0.72) 0%, rgba(165, 228, 255, 0.34) 48%, transparent 84%),
+    radial-gradient(14px 24% at 100% 22%, rgba(255, 255, 255, 0.88) 0%, rgba(180, 234, 255, 0.46) 46%, transparent 82%),
+    radial-gradient(14px 32% at 100% 76%, rgba(255, 255, 255, 0.9) 0%, rgba(180, 234, 255, 0.48) 46%, transparent 82%),
+    radial-gradient(16% 12px at 30% 100%, rgba(245, 252, 255, 0.78) 0%, rgba(165, 228, 255, 0.38) 48%, transparent 84%);
+}
+
+:global([data-theme='light']) .lightConditions::after {
+  background:
+    radial-gradient(16px 34% at 0% 34%, rgba(235, 248, 255, 0.96) 0%, rgba(56, 189, 248, 0.54) 48%, transparent 84%),
+    radial-gradient(19% 10px at 66% 0%, rgba(224, 244, 255, 0.9) 0%, rgba(56, 189, 248, 0.46) 50%, transparent 85%),
+    radial-gradient(16px 24% at 100% 22%, rgba(235, 248, 255, 0.95) 0%, rgba(56, 189, 248, 0.52) 48%, transparent 84%),
+    radial-gradient(16px 32% at 100% 76%, rgba(235, 248, 255, 0.96) 0%, rgba(56, 189, 248, 0.54) 48%, transparent 84%),
+    radial-gradient(17% 13px at 30% 100%, rgba(224, 244, 255, 0.92) 0%, rgba(56, 189, 248, 0.48) 50%, transparent 85%);
+}
+
+/* 3. DATA SOURCES */
+.lightSources::before {
+  background:
+    radial-gradient(24% 42% at 0% 12%, rgba(215, 244, 255, 0.2) 0%, transparent 76%),
+    radial-gradient(22% 40% at 100% 76%, rgba(205, 240, 255, 0.16) 0%, transparent 76%);
+  box-shadow: none;
+}
+
+:global([data-theme='light']) .lightSources::before {
+  background:
+    radial-gradient(26% 44% at 0% 12%, rgba(56, 189, 248, 0.15) 0%, rgba(125, 211, 252, 0.05) 50%, transparent 78%),
+    radial-gradient(24% 42% at 100% 76%, rgba(56, 189, 248, 0.13) 0%, transparent 78%);
+  box-shadow: none;
+}
+
+.lightSources::after {
+  background:
+    radial-gradient(56px 38% at 0% 12%, rgba(255, 255, 255, 0.94) 0%, rgba(180, 234, 255, 0.52) 46%, transparent 80%),
+    radial-gradient(14px 34% at 100% 76%, rgba(255, 255, 255, 0.9) 0%, rgba(180, 234, 255, 0.48) 46%, transparent 82%);
+}
+
+:global([data-theme='light']) .lightSources::after {
+  background:
+    radial-gradient(58px 38% at 0% 12%, rgba(235, 248, 255, 0.98) 0%, rgba(56, 189, 248, 0.58) 48%, transparent 84%),
+    radial-gradient(16px 34% at 100% 76%, rgba(235, 248, 255, 0.96) 0%, rgba(56, 189, 248, 0.54) 48%, transparent 84%);
+}
+
+/* 4. KEY INSIGHTS */
+.lightInsights::before {
+  background:
+    radial-gradient(18% 18% at 20% 0%, rgba(195, 238, 255, 0.07) 0%, transparent 75%),
+    radial-gradient(18% 52% at 0% 48%, rgba(205, 240, 255, 0.16) 0%, transparent 76%),
+    radial-gradient(22% 48% at 21% 100%, rgba(195, 238, 255, 0.14) 0%, transparent 78%),
+    radial-gradient(28% 72% at 100% 84%, rgba(220, 246, 255, 0.22) 0%, transparent 76%);
+  box-shadow: none;
+}
+
+:global([data-theme='light']) .lightInsights::before {
+  background:
+    radial-gradient(20% 20% at 20% 0%, rgba(56, 189, 248, 0.09) 0%, transparent 80%),
+    radial-gradient(20% 54% at 0% 48%, rgba(56, 189, 248, 0.13) 0%, transparent 78%),
+    radial-gradient(24% 50% at 21% 100%, rgba(56, 189, 248, 0.11) 0%, transparent 80%),
+    radial-gradient(30% 74% at 100% 84%, rgba(56, 189, 248, 0.16) 0%, rgba(125, 211, 252, 0.05) 48%, transparent 78%);
+  box-shadow: none;
+}
+
+.lightInsights::after {
+  background:
+    radial-gradient(16% 8px at 20% 0%, rgba(240, 250, 255, 0.72) 0%, rgba(165, 228, 255, 0.34) 48%, transparent 84%),
+    radial-gradient(14px 46% at 0% 48%, rgba(255, 255, 255, 0.9) 0%, rgba(180, 234, 255, 0.48) 46%, transparent 82%),
+    radial-gradient(18% 12px at 21% 100%, rgba(245, 252, 255, 0.78) 0%, rgba(165, 228, 255, 0.38) 48%, transparent 84%),
+    radial-gradient(60px 66% at 100% 84%, rgba(255, 255, 255, 0.95) 0%, rgba(185, 236, 255, 0.56) 46%, transparent 80%);
+}
+
+:global([data-theme='light']) .lightInsights::after {
+  background:
+    radial-gradient(17% 10px at 20% 0%, rgba(224, 244, 255, 0.9) 0%, rgba(56, 189, 248, 0.46) 50%, transparent 85%),
+    radial-gradient(16px 46% at 0% 48%, rgba(235, 248, 255, 0.96) 0%, rgba(56, 189, 248, 0.54) 48%, transparent 84%),
+    radial-gradient(19% 13px at 21% 100%, rgba(224, 244, 255, 0.92) 0%, rgba(56, 189, 248, 0.48) 50%, transparent 85%),
+    radial-gradient(62px 66% at 100% 84%, rgba(235, 248, 255, 0.98) 0%, rgba(56, 189, 248, 0.6) 48%, transparent 84%);
+}
+
+/* 5. M.A.R.I.N.E. BRAND CARD */
+.lightBrand::before {
+  background:
+    radial-gradient(42% 96% at 100% 50%, rgba(220, 246, 255, 0.22) 0%, rgba(139, 223, 255, 0.06) 48%, transparent 78%),
+    radial-gradient(18% 26% at 0% 100%, rgba(205, 240, 255, 0.16) 0%, transparent 76%);
+  box-shadow: none;
+}
+
+:global([data-theme='light']) .lightBrand::before {
+  background:
+    radial-gradient(44% 96% at 100% 50%, rgba(56, 189, 248, 0.16) 0%, rgba(125, 211, 252, 0.05) 50%, transparent 78%),
+    radial-gradient(20% 28% at 0% 100%, rgba(56, 189, 248, 0.13) 0%, transparent 78%);
+  box-shadow: none;
+}
+
+.lightBrand::after {
+  background:
+    radial-gradient(30% 24px at 88% 0%, rgba(255, 255, 255, 0.92) 0%, rgba(180, 234, 255, 0.5) 48%, transparent 82%),
+    radial-gradient(56px 96% at 100% 50%, rgba(255, 255, 255, 0.96) 0%, rgba(185, 236, 255, 0.58) 46%, transparent 80%),
+    radial-gradient(28% 24px at 88% 100%, rgba(255, 255, 255, 0.92) 0%, rgba(180, 234, 255, 0.5) 48%, transparent 82%),
+    radial-gradient(46px 46px at 0% 100%, rgba(255, 255, 255, 0.9) 0%, rgba(180, 234, 255, 0.46) 48%, transparent 82%);
+}
+
+:global([data-theme='light']) .lightBrand::after {
+  background:
+    radial-gradient(30% 24px at 88% 0%, rgba(235, 248, 255, 0.98) 0%, rgba(56, 189, 248, 0.58) 48%, transparent 84%),
+    radial-gradient(58px 96% at 100% 50%, rgba(235, 248, 255, 0.98) 0%, rgba(56, 189, 248, 0.62) 48%, transparent 84%),
+    radial-gradient(28% 24px at 88% 100%, rgba(235, 248, 255, 0.98) 0%, rgba(56, 189, 248, 0.58) 48%, transparent 84%),
+    radial-gradient(48px 48px at 0% 100%, rgba(235, 248, 255, 0.95) 0%, rgba(56, 189, 248, 0.54) 48%, transparent 84%);
+}
+
+/* ==========================================================================
+   KPI Kartları (Sağ Üst Küme)
+   ========================================================================== */
+
+/* 6. KPI 1: GLOBAL OCEAN TEMPERATURE (Sol dikey kenar + sağ alt köşe kavisi) */
+.lightKpiTemp::before {
+  background:
+    radial-gradient(22% 72% at 0% 56%, rgba(215, 244, 255, 0.2) 0%, rgba(139, 223, 255, 0.05) 50%, transparent 78%),
+    radial-gradient(22% 48% at 98% 96%, rgba(205, 240, 255, 0.16) 0%, transparent 76%);
+  box-shadow: none;
+}
+
+:global([data-theme='light']) .lightKpiTemp::before {
+  background:
+    radial-gradient(24% 74% at 0% 56%, rgba(56, 189, 248, 0.15) 0%, rgba(125, 211, 252, 0.05) 50%, transparent 78%),
+    radial-gradient(24% 50% at 98% 96%, rgba(56, 189, 248, 0.13) 0%, transparent 76%);
+  box-shadow: none;
+}
+
+.lightKpiTemp::after {
+  background:
+    radial-gradient(15px 68% at 0% 56%, rgba(255, 255, 255, 0.94) 0%, rgba(180, 234, 255, 0.52) 46%, transparent 82%),
+    radial-gradient(42px 32px at 97% 100%, rgba(255, 255, 255, 0.9) 0%, rgba(180, 234, 255, 0.46) 48%, transparent 82%);
+}
+
+:global([data-theme='light']) .lightKpiTemp::after {
+  background:
+    radial-gradient(17px 68% at 0% 56%, rgba(235, 248, 255, 0.98) 0%, rgba(56, 189, 248, 0.58) 48%, transparent 84%),
+    radial-gradient(44px 34px at 97% 100%, rgba(235, 248, 255, 0.95) 0%, rgba(56, 189, 248, 0.52) 48%, transparent 84%);
+}
+
+/* 7. KPI 2: OCEAN pH (Sol üst köşe + sol orta kenar + sağ alt köşe kavisi) */
+.lightKpiPh::before {
+  background:
+    radial-gradient(22% 42% at 2% 6%, rgba(215, 244, 255, 0.18) 0%, transparent 76%),
+    radial-gradient(20% 48% at 0% 62%, rgba(215, 244, 255, 0.19) 0%, rgba(139, 223, 255, 0.05) 50%, transparent 78%),
+    radial-gradient(22% 48% at 98% 96%, rgba(205, 240, 255, 0.17) 0%, transparent 76%);
+  box-shadow: none;
+}
+
+:global([data-theme='light']) .lightKpiPh::before {
+  background:
+    radial-gradient(24% 44% at 2% 6%, rgba(56, 189, 248, 0.14) 0%, transparent 76%),
+    radial-gradient(22% 50% at 0% 62%, rgba(56, 189, 248, 0.15) 0%, rgba(125, 211, 252, 0.05) 50%, transparent 78%),
+    radial-gradient(24% 50% at 98% 96%, rgba(56, 189, 248, 0.14) 0%, transparent 76%);
+  box-shadow: none;
+}
+
+.lightKpiPh::after {
+  background:
+    radial-gradient(44px 36px at 2% 4%, rgba(255, 255, 255, 0.92) 0%, rgba(180, 234, 255, 0.48) 48%, transparent 82%),
+    radial-gradient(15px 46% at 0% 62%, rgba(255, 255, 255, 0.94) 0%, rgba(180, 234, 255, 0.52) 46%, transparent 82%),
+    radial-gradient(46px 38px at 98% 96%, rgba(255, 255, 255, 0.92) 0%, rgba(180, 234, 255, 0.48) 48%, transparent 82%);
+}
+
+:global([data-theme='light']) .lightKpiPh::after {
+  background:
+    radial-gradient(46px 38px at 2% 4%, rgba(235, 248, 255, 0.96) 0%, rgba(56, 189, 248, 0.54) 48%, transparent 84%),
+    radial-gradient(17px 46% at 0% 62%, rgba(235, 248, 255, 0.98) 0%, rgba(56, 189, 248, 0.58) 48%, transparent 84%),
+    radial-gradient(48px 40px at 98% 96%, rgba(235, 248, 255, 0.96) 0%, rgba(56, 189, 248, 0.54) 48%, transparent 84%);
+}
+
+/* 8. KPI 3: SEA LEVEL RISE (Sol üst köşe + sol alt kavis + sağ kenar ve sağ alt köşe) */
+.lightKpiSea::before {
+  background:
+    radial-gradient(24% 46% at 3% 6%, rgba(215, 244, 255, 0.2) 0%, transparent 76%),
+    radial-gradient(26% 52% at 4% 92%, rgba(215, 244, 255, 0.2) 0%, rgba(139, 223, 255, 0.05) 50%, transparent 78%),
+    radial-gradient(28% 78% at 100% 74%, rgba(220, 246, 255, 0.22) 0%, rgba(139, 223, 255, 0.07) 48%, transparent 78%);
+  box-shadow: none;
+}
+
+:global([data-theme='light']) .lightKpiSea::before {
+  background:
+    radial-gradient(26% 48% at 3% 6%, rgba(56, 189, 248, 0.15) 0%, transparent 76%),
+    radial-gradient(28% 54% at 4% 92%, rgba(56, 189, 248, 0.15) 0%, rgba(125, 211, 252, 0.05) 50%, transparent 78%),
+    radial-gradient(30% 80% at 100% 74%, rgba(56, 189, 248, 0.17) 0%, rgba(125, 211, 252, 0.06) 48%, transparent 78%);
+  box-shadow: none;
+}
+
+.lightKpiSea::after {
+  background:
+    radial-gradient(48px 40px at 3% 4%, rgba(255, 255, 255, 0.94) 0%, rgba(180, 234, 255, 0.5) 48%, transparent 82%),
+    radial-gradient(52px 54% at 3% 88%, rgba(255, 255, 255, 0.94) 0%, rgba(180, 234, 255, 0.5) 48%, transparent 82%),
+    radial-gradient(54px 74% at 100% 76%, rgba(255, 255, 255, 0.96) 0%, rgba(185, 236, 255, 0.56) 46%, transparent 80%);
+}
+
+:global([data-theme='light']) .lightKpiSea::after {
+  background:
+    radial-gradient(50px 42px at 3% 4%, rgba(235, 248, 255, 0.98) 0%, rgba(56, 189, 248, 0.58) 48%, transparent 84%),
+    radial-gradient(54px 54% at 3% 88%, rgba(235, 248, 255, 0.98) 0%, rgba(56, 189, 248, 0.58) 48%, transparent 84%),
+    radial-gradient(56px 74% at 100% 76%, rgba(235, 248, 255, 0.98) 0%, rgba(56, 189, 248, 0.62) 48%, transparent 84%);
 }

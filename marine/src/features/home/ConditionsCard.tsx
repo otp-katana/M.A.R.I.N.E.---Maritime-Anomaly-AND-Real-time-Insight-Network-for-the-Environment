@@ -15,23 +15,18 @@ const TABS: { id: ConditionVariable; label: string }[] = [
   { id: 'chlorophyll', label: 'Chlorophyll' },
 ]
 
-// SegmentedTabs mercek geçiş süresinin (400ms) tam orta noktası
-const CHART_SWAP_DELAY_MS = 190
+const CHART_SWAP_DELAY_MS = 110
+const CHART_SETTLE_MS = 380
 
 export function ConditionsCard() {
   const { data, error } = useAsync(fetchConditions)
   const [tab, setTab] = useState<ConditionVariable>('temperature')
   const [displayTab, setDisplayTab] = useState<ConditionVariable>('temperature')
   const [phase, setPhase] = useState<'idle' | 'exiting' | 'entering'>('idle')
-  const [direction, setDirection] = useState<'next' | 'prev'>('next')
   const prevTabRef = useRef<ConditionVariable>('temperature')
 
   useEffect(() => {
     if (tab === prevTabRef.current) return
-
-    const prevIndex = TABS.findIndex((t) => t.id === prevTabRef.current)
-    const nextIndex = TABS.findIndex((t) => t.id === tab)
-    setDirection(nextIndex >= prevIndex ? 'next' : 'prev')
     prevTabRef.current = tab
 
     setPhase('exiting')
@@ -43,7 +38,7 @@ export function ConditionsCard() {
 
     const settleTimer = window.setTimeout(() => {
       setPhase('idle')
-    }, 400)
+    }, CHART_SETTLE_MS)
 
     return () => {
       window.clearTimeout(swapTimer)
@@ -54,7 +49,7 @@ export function ConditionsCard() {
   const series = data?.[displayTab]
 
   return (
-    <LiquidGlassCard padding="md">
+    <LiquidGlassCard padding="md" lightOrigin="conditions" className={styles.card}>
       <CardHeader
         icon={<DropIcon />}
         title="Ocean Conditions"
@@ -73,11 +68,9 @@ export function ConditionsCard() {
               styles.chartStage,
               phase === 'exiting' && styles.exiting,
               phase === 'entering' && styles.entering,
-              direction === 'prev' && styles.reverse,
             )}
           >
             <AreaChart
-              key={displayTab}
               points={series.points}
               height={186}
               unit={series.unit}

@@ -14,7 +14,7 @@ export function LayersCard() {
   const activeId = selected ?? data?.[0]?.id
 
   return (
-    <LiquidGlassCard padding="none">
+    <LiquidGlassCard padding="none" lightOrigin="right-bottom">
       <div className={styles.inner}>
         <CardHeader
           icon={<LayersIcon />}

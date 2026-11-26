@@ -20,7 +20,7 @@ export function InsightsCard() {
   const insight = data?.[0]
 
   return (
-    <LiquidGlassCard padding="none">
+    <LiquidGlassCard padding="none" lightOrigin="insights">
       <div className={styles.inner}>
         <CardHeader
           icon={<SparkleIcon />}

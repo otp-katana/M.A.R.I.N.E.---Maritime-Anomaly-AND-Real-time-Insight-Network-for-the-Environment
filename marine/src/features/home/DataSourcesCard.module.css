@@ -16,13 +16,197 @@
   overflow: hidden;
 }
 
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+}
+
+.listWrap {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  margin-top: 8px;
+}
+
 .list {
   flex: 1;
   min-height: 0;
-  margin-top: 8px;
-  overflow: hidden;
-  -webkit-mask-image: linear-gradient(to bottom, #000 72%, transparent 100%);
-  mask-image: linear-gradient(to bottom, #000 72%, transparent 100%);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: none;
+  padding-bottom: 18px;
+  user-select: none;
+  touch-action: pan-y;
+  cursor: grab;
+}
+
+.list::-webkit-scrollbar {
+  display: none;
+}
+
+.listDragging {
+  cursor: grabbing;
+}
+
+/* Aşağıda gizli öğeler varken satırları doğrudan kartın cam dokusuna eritir */
+.listFadeBottom {
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    #000 66%,
+    rgba(0, 0, 0, 0.42) 84%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    #000 66%,
+    rgba(0, 0, 0, 0.42) 84%,
+    transparent 100%
+  );
+}
+
+/* Koyu arka plan şeridi olmadan yalnızca hafif cam buğusu ve ok */
+.bottomCue {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 4;
+  height: 42px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 2px;
+  pointer-events: none;
+  background: transparent;
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.35) 52%,
+    #000 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.35) 52%,
+    #000 100%
+  );
+  transition: opacity 220ms var(--ease);
+}
+
+.bottomCueHidden {
+  opacity: 0;
+}
+
+.downCueBtn {
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 16px;
+  padding: 0;
+  border-radius: var(--radius-pill);
+  color: var(--accent-ice, #8bdfff);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(160, 205, 255, 0.24);
+  box-shadow:
+    0 4px 12px rgba(2, 6, 23, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+  animation: cueFloat 2.2s ease-in-out infinite;
+  transition:
+    transform 180ms var(--ease),
+    background-color 180ms var(--ease),
+    border-color 180ms var(--ease);
+}
+
+:global([data-theme='light']) .downCueBtn {
+  color: var(--accent-blue, #2f6fe8);
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(40, 82, 168, 0.2);
+  box-shadow:
+    0 4px 10px rgba(30, 60, 130, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.downCueBtn:hover {
+  background: rgba(139, 223, 255, 0.14);
+  border-color: rgba(139, 223, 255, 0.52);
+}
+
+:global([data-theme='light']) .downCueBtn:hover {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(47, 111, 232, 0.45);
+}
+
+.bottomCueHidden {
+  opacity: 0;
+}
+
+.downCueBtn {
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 18px;
+  padding: 0;
+  border-radius: var(--radius-pill);
+  color: var(--accent-ice, #8bdfff);
+  background: rgba(12, 22, 48, 0.62);
+  border: 1px solid rgba(160, 205, 255, 0.32);
+  box-shadow:
+    0 4px 12px rgba(2, 6, 23, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.28);
+  cursor: pointer;
+  animation: cueFloat 2.2s ease-in-out infinite;
+  transition:
+    transform 180ms var(--ease),
+    border-color 180ms var(--ease),
+    box-shadow 180ms var(--ease);
+}
+
+:global([data-theme='light']) .downCueBtn {
+  color: var(--accent-blue, #2f6fe8);
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(40, 82, 168, 0.24);
+  box-shadow:
+    0 4px 10px rgba(30, 60, 130, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+}
+
+.downCueBtn:hover {
+  border-color: rgba(139, 223, 255, 0.65);
+  box-shadow:
+    0 0 14px rgba(57, 217, 255, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.45);
+}
+
+.bottomCueHidden .downCueBtn {
+  pointer-events: none;
+}
+
+@keyframes cueFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(2px);
+  }
+}
+
+.sampleNote {
+  margin-bottom: 6px;
+  font-size: 11px;
+  line-height: 1.35;
+  color: var(--text-muted);
 }
 
 .skeleton {

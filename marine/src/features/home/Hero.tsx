@@ -14,7 +14,7 @@ export function Hero() {
         <div className={styles.statusContent}>
           <LiveBadge />
           <span className={styles.updated}>
-            {DATA_MODE === 'live' ? 'Last Updated: ' : 'Sample dataset · '}
+            {DATA_MODE === 'live' ? 'Last Updated · ' : ''}
             <span className="num">{formatUtcStamp(mockStatus.lastUpdated)}</span>
           </span>
         </div>
@@ -30,10 +30,10 @@ export function Hero() {
       </p>
 
       <div className={styles.actions}>
-        <ButtonLink to="/map" icon={<SendIcon />}>
+        <ButtonLink to="/map" size="sm" icon={<SendIcon />} className={styles.primaryBtn}>
           Explore the Ocean
         </ButtonLink>
-        <ButtonLink to="/about" variant="ghost" icon={<ArrowRightIcon />}>
+        <ButtonLink to="/about" variant="ghost" size="sm" icon={<ArrowRightIcon />} className={styles.secondaryBtn}>
           How it Works
         </ButtonLink>
       </div>

@@ -458,11 +458,36 @@ export function LiquidGlassLayer({ className }: { className?: string }) {
   )
 }
 
+export type LiquidGlassLightOrigin =
+  | 'default'
+  | 'right-bottom'
+  | 'glance'
+  | 'conditions'
+  | 'sources'
+  | 'insights'
+  | 'brand'
+  | 'kpi-temp'
+  | 'kpi-ph'
+  | 'kpi-sea'
+
+const LIGHT_ORIGIN_CLASS: Record<Exclude<LiquidGlassLightOrigin, 'default'>, string> = {
+  'right-bottom': styles.lightRightBottom,
+  glance: styles.lightGlance,
+  conditions: styles.lightConditions,
+  sources: styles.lightSources,
+  insights: styles.lightInsights,
+  brand: styles.lightBrand,
+  'kpi-temp': styles.lightKpiTemp,
+  'kpi-ph': styles.lightKpiPh,
+  'kpi-sea': styles.lightKpiSea,
+}
+
 interface LiquidGlassCardProps {
   as?: ElementType
   padding?: 'default' | 'none' | 'sm' | 'md' | 'lg' | 'compact'
   interactive?: boolean
   glow?: boolean
+  lightOrigin?: LiquidGlassLightOrigin
   children?: ReactNode
   className?: string
   contentClassName?: string
@@ -473,6 +498,7 @@ export function LiquidGlassCard({
   padding = 'default',
   interactive = false,
   glow = false,
+  lightOrigin = 'default',
   children,
   className,
   contentClassName,
@@ -483,6 +509,7 @@ export function LiquidGlassCard({
         styles.liquidCard,
         interactive && styles.interactive,
         glow && styles.glow,
+        lightOrigin !== 'default' && LIGHT_ORIGIN_CLASS[lightOrigin],
         className,
       )}
     >
