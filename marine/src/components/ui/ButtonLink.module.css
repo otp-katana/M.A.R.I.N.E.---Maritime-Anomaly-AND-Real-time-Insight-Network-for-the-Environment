@@ -225,3 +225,9 @@
     transition: none !important;
   }
 }
+
+/* Yalnızca "Read more" butonu: cam dokusu korunur, kenar hüzmeleri kaldırılır */
+.readMore.ghost::before,
+.readMore.ghost::after {
+  content: none;
+}
