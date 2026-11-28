@@ -1,35 +1,22 @@
-export function LogoMark({ size = 56 }: { size?: number }) {
-  const wave = (y: number) => `M6 ${y}c4-5 8-5 12 0s8 5 12 0 8-5 12 0`
+import marineLogo from '@/assets/marine.png'
+
+type LogoMarkProps = {
+  size?: number
+  className?: string
+}
+
+export function LogoMark({ size = 56, className }: LogoMarkProps) {
   return (
-    <svg
-      width={size}
-      height={size * 0.8}
-      viewBox="4 8 40 32"
-      fill="none"
-      aria-hidden="true"
-    >
-      <defs>
-        <linearGradient
-          id="marine-logo-grad"
-          x1="4"
-          y1="8"
-          x2="44"
-          y2="40"
-          gradientUnits="userSpaceOnUse"
-        >
-          <stop stopColor="#5fd0ff" />
-          <stop offset="1" stopColor="#9b7bff" />
-        </linearGradient>
-      </defs>
-      {[14, 24, 34].map((y) => (
-        <path
-          key={y}
-          d={wave(y)}
-          stroke="url(#marine-logo-grad)"
-          strokeWidth={3.5}
-          strokeLinecap="round"
-        />
-      ))}
-    </svg>
+    <img
+      src={marineLogo}
+      alt="M.A.R.I.N.E. logo"
+      className={className}
+      style={{
+        width: `${size * 2}px`,
+        height: 'auto',
+        display: 'block',
+        objectFit: 'contain',
+      }}
+    />
   )
 }

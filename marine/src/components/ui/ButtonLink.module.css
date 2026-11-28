@@ -119,13 +119,13 @@
 }
 
 :global([data-theme='light']) .ghost::before {
-  background:
+  background-image:
     linear-gradient(
       115deg,
       transparent 20%,
-      rgba(56, 189, 248, 0.18) 38%,
-      rgba(56, 189, 248, 0.46) 50%,
-      rgba(56, 189, 248, 0.18) 62%,
+      rgba(37, 99, 235, 0.16) 38%,
+      rgba(56, 189, 248, 0.52) 50%,
+      rgba(37, 99, 235, 0.16) 62%,
       transparent 80%
     ),
     radial-gradient(
@@ -140,6 +140,11 @@
       rgba(255, 255, 255, 0.22) 52%,
       transparent 82%
     );
+}
+
+:global([data-theme='light']) .ghost:hover::before {
+  background-position: 240% 0, 0 0, 0 0;
+  transition: background-position 1s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 /* Sol kavisin tamamı ve sağ alt kavis yayı için 1px keskin cam kırılması */
